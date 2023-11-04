@@ -1,0 +1,46 @@
+1. **Document Structure**:
+   - `<speak>`: `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis">Hello, World!</speak>`
+   - `<voice>`: `<voice name="en-US-JennyNeural">This is a voice tag.</voice>`
+   - `<audio>`: `<audio src="sound.mp3">This text is spoken if audio is unavailable.</audio>`
+   - `<break>`: `<break time="500ms"/>`
+   - `<emphasis>`: `<emphasis level="strong">Emphasized text.</emphasis>`
+   - `<lang>`: `<lang xml:lang="fr-FR">Text in French.</lang>`
+   - `<lexicon>`: `<lexicon uri="my-lexicon.xml"/>`
+   - `<math>`: `<math xmlns="http://www.w3.org/1998/Math/MathML">Math expression</math>`
+   - `<mstts:audioduration>`: `<mstts:audioduration value="2s"/>`
+   - `<mstts:express-as>`: `<mstts:express-as style="happy">Express with joy.</mstts:express-as>`
+   - `<mstts:silence>`: `<mstts:silence type="Leading" value="200ms"/>`
+   - `<mstts:viseme>`: `<mstts:viseme type="FacialExpression"/>`
+   - `<p>`: `<p>This is a paragraph.</p>`
+   - `<phoneme>`: `<phoneme alphabet="ipa" ph="fəˈniːm"/>`
+   - `<prosody>`: `<prosody pitch="high" rate="fast">Text with altered prosody.</prosody>`
+   - `<s>`: `<s>This is a sentence.</s>`
+   - `<say-as>`: `<say-as interpret-as="date">2023-09-22</say-as>`
+   - `<sub>`: `<sub alias="abbreviation">Text to substitute.</sub>`
+   - `<bookmark>`: `<bookmark mark="chapter_1"/>`
+
+2. **Special Characters**:
+   - &amp;: `green &amp; yellow`
+   - &lt;: `2 &lt; 3`
+   - &gt;: `5 &gt; 4`
+
+3. **Speak Root Element**:
+   - `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">Text to speak.</speak>`
+
+4. **Add a Break**:
+   - `<break>`: `<break time="750ms"/>`
+
+5. **Add Silence**:
+   - `<mstts:silence>`: `<mstts:silence type="Sentenceboundary" value="200ms"/>`
+
+6. **Specify Paragraphs and Sentences**:
+   - `<p>`: `<p>This is a paragraph.</p>`
+   - `<s>`: `<s>This is a sentence.</s>`
+
+7. **Bookmark Element**:
+   - `<bookmark>`: `<bookmark mark="chapter_1"/>`
+
+8. **Viseme Element**:
+   - `<mstts:viseme>`: `<mstts:viseme type="FacialExpression"/>`
+
+These examples illustrate how each SSML element or structure can be used in practice to control various aspects of text-to-speech output.

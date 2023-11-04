@@ -1,0 +1,346 @@
+**Voice Element**:
+
+The `voice` element is used to specify the voice for text-to-speech output within an SSML `speak` element.
+
+Attributes:
+- `name`: Specifies the voice used for text-to-speech output. (Required)
+- `effect`: Specifies the audio effect processor for optimizing speech quality in specific scenarios, like cars or telecommunications. (Optional)
+
+**Voice Examples**:
+
+**Single Voice Example**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        This is the text that is spoken.
+    </voice>
+</speak>
+```
+
+**Multiple Voices Example**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        Good morning!
+    </voice>
+    <voice name="en-US-ChristopherNeural">
+        Good morning to you too Jenny!
+    </voice>
+</speak>
+```
+
+**Custom Neural Voice Example**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="my-custom-voice">
+        This is the text that is spoken.
+    </voice>
+</speak>
+```
+
+**Audio Effect Example**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural" effect="eq_car">
+        This is the text that is spoken.
+    </voice>
+</speak>
+```
+
+The `voice` element allows you to specify the voice, including custom voices, and optimize speech quality for different scenarios using the `effect` attribute. You can also use multiple voices within a single SSML document.
+
+---
+
+**Speaking Styles and Roles**:
+
+The `mstts:express-as` element in SSML allows you to adjust speaking styles and roles for neural voices at the sentence level.
+
+Attributes:
+- `style`: Specifies the voice-specific speaking style. (Required)
+- `styledegree`: Determines the intensity of the speaking style. (Optional)
+- `role`: Sets the speaking role-play to imitate a different age and gender. (Optional)
+
+**Supported Style Attributes**:
+- `style="advertisement_upbeat"`
+- `style="affectionate"`
+- `style="angry"`
+- `style="assistant"`
+- `style="calm"`
+- `style="chat"`
+- `style="cheerful"`
+- `style="customerservice"`
+- `style="depressed"`
+- `style="disgruntled"`
+- `style="documentary-narration"`
+- `style="embarrassed"`
+- `style="empathetic"`
+- `style="envious"`
+- `style="excited"`
+- `style="fearful"`
+- `style="friendly"`
+- `style="gentle"`
+- `style="hopeful"`
+- `style="lyrical"`
+- `style="narration-professional"`
+- `style="narration-relaxed"`
+- `style="newscast"`
+- `style="newscast-casual"`
+- `style="newscast-formal"`
+- `style="poetry-reading"`
+- `style="sad"`
+- `style="serious"`
+- `style="shouting"`
+- `style="sports_commentary"`
+- `style="sports_commentary_excited"`
+- `style="whispering"`
+- `style="terrified"`
+- `style="unfriendly"`
+
+**Supported Role Attributes**:
+- `role="Girl"`
+- `role="Boy"`
+- `role="YoungAdultFemale"`
+- `role="YoungAdultMale"`
+- `role="OlderAdultFemale"`
+- `role="OlderAdultMale"`
+- `role="SeniorFemale"`
+- `role="SeniorMale"`
+
+**Examples**:
+
+**Style and Degree Example**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaomoNeural">
+        <mstts:express-as style="sad" styledegree="2">
+            快走吧，路上一定要注意安全，早去早回。
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+**Role Example**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaomoNeural">
+        女儿看见父亲走了进来，问道：
+        <mstts:express-as role="YoungAdultFemale" style="calm">
+            “您来的挺快的，怎么过来的？”
+        </mstts:express-as>
+        父亲放下手提包，说：
+        <mstts:express-as role="OlderAdultMale" style="calm">
+            “刚打车过来的，路上还挺顺畅。”
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+**Custom Neural Voice Style Example**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="my-custom-voice">
+        <mstts:express-as style="cheerful" styledegree="2">
+            That'd be just amazing!
+        </mstts:express-as>
+        <mstts:express-as style="my-custom-style" styledegree="0.01">
+            What's next?
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+The `mstts:express-as` element allows you to adjust speaking styles and roles for neural voices in SSML, providing a wide range of expressive possibilities.
+
+--- 
+
+**Adjusting Speaking Languages**:
+
+You can adjust the speaking language for multilingual neural voices using the `<lang xml:lang>` element in SSML.
+
+Attributes:
+- `xml:lang`: Specifies the language you want the neural voice to speak. (Required to adjust the speaking language)
+
+**Multilingual Voices Supported Languages**:
+
+1. `en-US-JennyMultilingualNeural`:
+   - Supported locales: de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN
+
+2. `en-US-JennyMultilingualV2Neural`:
+   - Supported locales: ar-EG, ar-SA, ca-ES, cs-CZ, da-DK, de-AT, de-CH, de-DE, en-AU, en-CA, en-GB, en-HK, en-IE, en-IN, en-US, es-ES, es-MX, fi-FI, fr-BE, fr-CA, fr-CH, fr-FR, hi-IN, hu-HU, id-ID, it-IT, ja-JP, ko-KR, nb-NO, nl-BE, nl-NL, pl-PL, pt-BR, pt-PT, ru-RU, sv-SE, th-TH, tr-TR, zh-CN, zh-HK, zh-TW
+
+3. `en-US-RyanMultilingualNeural`:
+   - Supported locales: ar-EG, ar-SA, ca-ES, cs-CZ, da-DK, de-AT, de-CH, de-DE, en-AU, en-CA, en-GB, en-HK, en-IE, en-IN, en-US, es-ES, es-MX, fi-FI, fr-BE, fr-CA, fr-CH, fr-FR, hi-IN, hu-HU, id-ID, it-IT, ja-JP, ko-KR, nb-NO, nl-BE, nl-NL, pl-PL, pt-BR, pt-PT, ru-RU, sv-SE, th-TH, tr-TR, zh-CN, zh-HK, zh-TW
+
+**Examples**:
+
+**Single Language Example**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        <lang xml:lang="de-DE">
+            Wir freuen uns auf die Zusammenarbeit mit Ihnen!
+        </lang>
+    </voice>
+</speak>
+```
+
+**Multiple Languages Example**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        <lang xml:lang="es-MX">
+            ¡Esperamos trabajar con usted!
+        </lang>
+        <lang xml:lang="en-US">
+           We look forward to working with you!
+        </lang>
+        <lang xml:lang="fr-FR">
+            Nous avons hâte de travailler avec vous!
+        </lang>
+    </voice>
+</speak>
+```
+
+The `<lang xml:lang>` element allows you to adjust the speaking language for multilingual neural voices at both the sentence and word levels, providing multilingual text-to-speech capabilities.
+
+---
+
+**Adjust Prosody**:
+
+You can use the `<prosody>` element in SSML to specify changes to pitch, contour, range, rate, and volume for text-to-speech output.
+
+Attributes:
+- `contour`: Represents changes in pitch, defined as an array of targets at specified time positions. Example: `<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`.
+- `pitch`: Specifies the baseline pitch for the text, expressed as an absolute value, relative value, or constant. Example: `<prosody pitch="600Hz">`.
+- `range`: Represents the range of pitch for the text, expressed similarly to pitch.
+- `rate`: Indicates the speaking rate of the text, expressed as a relative value or constant. Example: `<prosody rate="+30.00%">`.
+- `volume`: Indicates the volume level of the speaking voice, expressed as an absolute value, relative value, or constant. Example: `<prosody volume="50%">`.
+
+**Examples**:
+
+**Change Speaking Rate**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        <prosody rate="+30.00%">
+            Enjoy using text to speech.
+        </prosody>
+    </voice>
+</speak>
+```
+
+**Change Volume**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        <prosody volume="+20.00%">
+            Enjoy using text to speech.
+        </prosody>
+    </voice>
+</speak>
+```
+
+**Change Pitch**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        Welcome to <prosody pitch="high">Enjoy using text to speech.</prosody>
+    </voice>
+</speak>
+```
+
+**Change Pitch Contour**:
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        <prosody contour="(60%,-60%) (100%,+80%)" >
+            Were you the only person in the room?
+        </prosody>
+    </voice>
+</speak>
+```
+
+The `<prosody>` element allows you to control various prosodic aspects of text-to-speech output.
+
+---
+
+**Adjust Emphasis**:
+
+The `<emphasis>` element in SSML is used to add or remove word-level stress for text-to-speech output. This element is optional and can only contain text.
+
+Attributes:
+- `level`: Indicates the strength of emphasis, which can be set to "reduced," "none," "moderate," or "strong" (default is moderate).
+
+**Example**:
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-GuyNeural">
+    I can help you join your <emphasis level="moderate">meetings</emphasis> fast.
+    </voice>
+</speak>
+```
+
+**Add Recorded Audio**:
+
+The `<audio>` element in SSML allows you to insert prerecorded audio into an SSML document. This audio element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The audio element can also contain text.
+
+Attributes:
+- `src`: The URI location of the audio file (must be hosted on an internet-accessible HTTPS endpoint).
+
+**Example**:
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        <p>
+            <audio src="https://contoso.com/opinionprompt.wav"/>
+            Thanks for offering your opinion. Please begin speaking after the beep.
+            <audio src="https://contoso.com/beep.wav">
+                Could not play the beep, please voice your opinion now.
+            </audio>
+        </p>
+    </voice>
+</speak>
+```
+
+**Adjust the Audio Duration**:
+
+Use the `<mstts:audioduration>` element to set the duration of the output audio. It helps synchronize the timing of audio output completion, and the duration can be decreased or increased between 0.5 to 2 times the original audio duration.
+
+Attributes:
+- `value`: The requested duration of the output audio in seconds or milliseconds.
+
+**Example**:
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        <mstts:audioduration value="20s"/>
+        If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
+    </voice>
+</speak>
+```
+
+**Add Background Audio**:
+
+The `<mstts:backgroundaudio>` element allows you to add background audio to your SSML documents or mix an audio file with text-to-speech. It supports looping, fading in at the beginning, and fading out at the end of text-to-speech.
+
+Attributes:
+- `src`: The URI location of the background audio file.
+- `volume`: The volume of the background audio file (0 to 100).
+- `fadein`: The duration of the background audio fade-in in milliseconds.
+- `fadeout`: The duration of the background audio fade-out in milliseconds.
+
+**Example**:
+
+```xml
+<speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
+    <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
+    <voice name="en-US-JennyNeural">
+        The text provided in this document will be spoken over the background audio.
+    </voice>
+</speak>
+```
+
+These SSML elements provide various ways to adjust emphasis, incorporate recorded audio, control audio duration, and add background audio to your text-to-speech output.
