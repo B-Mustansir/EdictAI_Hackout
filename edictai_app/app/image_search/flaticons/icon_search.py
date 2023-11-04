@@ -1,0 +1,18 @@
+key = "WcvYV7rIk3h9O0zPLe3phi9688jhUYUshF9ABDnyEGZmx5Fg"
+
+import requests
+
+url = 'https://api.flaticon.com/v3/search/icons/{orderBy}'
+headers = {
+    'Accept': 'application/json',
+    'Authorization': 'string'
+}
+params = {'q': 'string'}
+
+response = requests.get(url, params=params, headers=headers)
+
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+else:
+    print(f"Request failed with status code {response.status_code}")
