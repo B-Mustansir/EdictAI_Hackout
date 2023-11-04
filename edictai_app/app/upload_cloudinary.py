@@ -3,9 +3,9 @@ import cloudinary.uploader
 
 def upload_video(location):
     cloudinary.config( 
-    cloud_name = "dcp8kk3ry", 
-    api_key = "736952496664967", 
-    api_secret = "nZhxjQEhB4NCe65EwBxIsmBaM8g" 
+    cloud_name = "", 
+    api_key = "", 
+    api_secret = "" 
     )
     data = cloudinary.uploader.upload(location, 
     resource_type='video', 

@@ -6,7 +6,7 @@ r = requests.post('https://clipdrop-api.co/text-to-image/v1',
   files = {
       'prompt': (None, 'Narendra Modi', 'text/plain')
   },
-  headers = { 'x-api-key': '1153f9eb75188d98b43284e7e93f4365e54369b0083862c69b5f6603e69d27378fa03979945b22ecd75f4dc413a8d2d0'}
+  headers = { 'x-api-key': ''}
 )
 
 

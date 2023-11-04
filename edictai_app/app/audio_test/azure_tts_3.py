@@ -36,7 +36,7 @@ def speech_synthesizer_word_boundary_cb(evt: speechsdk.SessionEventArgs):
     print('\tWordLength: {}'.format(evt.word_length))
 
 # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
-speech_config = speechsdk.SpeechConfig(subscription="21186bfc40b44f23bdd5d7afe3f19552", region="centralindia")
+speech_config = speechsdk.SpeechConfig(subscription="", region="")
 # speech_config = speechsdk.SpeechConfig(subscription="9dfa789ee50047d7944ad4c9d277e8f3", region="eastus")
 
 # Required for WordBoundary event sentences.

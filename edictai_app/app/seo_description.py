@@ -1,7 +1,7 @@
 import requests
 
 def search_videos(query, max_results=10):
-    api_key = "AIzaSyAOJU-5OM8lJu1Yl-787EANdTTCNxMuDNI"
+    api_key = ""
     url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&q={query}&type=video&order=relevance&maxResults={max_results}&key={api_key}"
 
     response = requests.get(url)

@@ -2,7 +2,7 @@ from azure.ai.translation.text import TextTranslationClient, TranslatorCredentia
 from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
 
-key = "f5ba6394593942aba6c943f9d04eee10"
+key = ""
 endpoint = "https://api.cognitive.microsofttranslator.com/"
 region = "centralindia"
 

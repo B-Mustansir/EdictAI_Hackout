@@ -3,7 +3,7 @@ import os
 import uuid
 from urllib.parse import urlparse
 
-API_KEY = 'nkT4wElq5FAkXda4hjKmLlmi9lIHwjEGMU28GMtDeqswijGgVbMvv3v0'
+API_KEY = ''
 query = 'Nature'
 
 base_url = 'https://api.pexels.com/videos/'

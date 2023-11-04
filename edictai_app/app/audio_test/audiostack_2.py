@@ -1,7 +1,7 @@
 import audiostack
 import os
 
-audiostack.api_key = "0fcc523021dc458286fd125e0d92eaae"
+audiostack.api_key = ""
 
 # # We'll get our files with the list method
 # tts_files = audiostack.Speech.TTS.list(scriptId=scriptId)

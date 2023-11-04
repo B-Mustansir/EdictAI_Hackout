@@ -1,7 +1,7 @@
 from azure.cognitiveservices.search.imagesearch import ImageSearchClient
 from msrest.authentication import CognitiveServicesCredentials
 
-subscription_key = "68e6426502f046a2aa930ff5e47f8154"
+subscription_key = ""
 subscription_endpoint = "https://api.bing.microsoft.com/"
 search_term = "team"
 

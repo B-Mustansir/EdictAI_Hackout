@@ -7,7 +7,7 @@ def google_image_search_api(query,chunk_number):
     if("gender equality" in query):
         query = "balanced scale of gender equality"
 
-    gis = GoogleImagesSearch('AIzaSyAMTol-nFUexkxuKdo1RcaAb97gCTTWHCI', '1767a2d38eff54836')
+    gis = GoogleImagesSearch('', '')
 
     _search_params = {
         'q': query,

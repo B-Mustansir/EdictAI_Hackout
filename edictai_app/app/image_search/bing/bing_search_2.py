@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
 
-subscription_key = "68e6426502f046a2aa930ff5e47f8154"
+subscription_key = ""
 search_url = "https://api.bing.microsoft.com/v7.0/images/search"
 search_term = "puppies"
 

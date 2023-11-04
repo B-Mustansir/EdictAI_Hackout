@@ -4,7 +4,7 @@ import requests
 
 engine_id = "stable-diffusion-xl-1024-v1-0"
 api_host = os.getenv('API_HOST', 'https://api.stability.ai')
-api_key = "sk-Bx9sB9L0Mv0a8IHWXnuYjhX0Ytm5kRp3wjn7eVitEiRRpgFO"
+api_key = ""
 
 if api_key is None:
     raise Exception("Missing Stability API key.")

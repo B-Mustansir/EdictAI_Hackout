@@ -1,7 +1,7 @@
 import audiostack
 import os
 
-audiostack.api_key = "0fcc523021dc458286fd125e0d92eaae"
+audiostack.api_key = ""
 
 script = audiostack.Content.Script.create(
   scriptText='''

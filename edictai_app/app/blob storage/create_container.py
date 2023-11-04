@@ -6,7 +6,7 @@ try:
     print("Azure Blob Storage Python quickstart sample")
 
     # Quickstart code goes here
-    blob_service_client = BlobServiceClient.from_connection_string("DefaultEndpointsProtocol=https;AccountName=mentormeestorage;AccountKey=/xO4hIxojReXRKuUqeTUIZXR4Cg0H3QVA9idqmTEKNvV5BpJpdGWpTmjTtaMEzu/GJ0lsRDkRgZf+AStG+6wlA==;EndpointSuffix=core.windows.net")
+    blob_service_client = BlobServiceClient.from_connection_string("DefaultEndpointsProtocol=https;AccountName=mentormeestorage;AccountKey=/.../;EndpointSuffix=core.windows.net")
     # Create a unique name for the container
     # container_name = str(uuid.uuid4())
     # Create the container

@@ -2,8 +2,8 @@ import os
 import openai
 import requests
 
-openai.organization = "org-5LY5AiUTjRELf7YC1UtBfo0j"
-openai.api_key = "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"
+openai.organization = ""
+openai.api_key = ""
 
 # Create the image using OpenAI API
 response = openai.Image.create(

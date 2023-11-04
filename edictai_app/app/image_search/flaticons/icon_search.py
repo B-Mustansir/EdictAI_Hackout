@@ -1,4 +1,4 @@
-key = "WcvYV7rIk3h9O0zPLe3phi9688jhUYUshF9ABDnyEGZmx5Fg"
+key = ""
 
 import requests
 

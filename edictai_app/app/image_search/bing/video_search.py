@@ -2,7 +2,7 @@ from azure.cognitiveservices.search.videosearch import VideoSearchClient
 from azure.cognitiveservices.search.videosearch.models import VideoPricing, VideoLength, VideoResolution, VideoInsightModule
 from msrest.authentication import CognitiveServicesCredentials
 
-subscription_key = "44c73eb7833547479ecab554876379af"
+subscription_key = ""
 endpoint = "https://api.bing.microsoft.com/v7.0/videos/search"
 
 client = VideoSearchClient(endpoint, CognitiveServicesCredentials(subscription_key))
