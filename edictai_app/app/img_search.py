@@ -1,13 +1,14 @@
 import os
 from google_images_search import GoogleImagesSearch
 from .generate_image import *
+from .env import *
 
 def google_image_search_api(query,chunk_number):
     
     if("gender equality" in query):
         query = "balanced scale of gender equality"
 
-    gis = GoogleImagesSearch('', '')
+    gis = GoogleImagesSearch(img_search_1, img_search_2)
 
     _search_params = {
         'q': query,
@@ -36,7 +37,9 @@ def google_image_search_api(query,chunk_number):
         
         if '.svg' in old_file_name:
             return generate_image(query,chunk_number)
-            
+        
+        if '.webp' in old_file_name:
+            return generate_image(query,chunk_number)
             
 
         # create a new file name
@@ -68,3 +71,5 @@ def rename_images():
         old_path = os.path.join(folder_path, old_name)
         new_path = os.path.join(folder_path, new_name)
         os.rename(old_path, new_path)
+
+# google_image_search_api("FIDE World Junior Rapid Chess Championship",69)

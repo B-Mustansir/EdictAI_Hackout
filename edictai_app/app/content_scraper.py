@@ -35,7 +35,7 @@ def scrap_content(url):
                         f"releaseid: {release_id}\n" \
                         f"visitorcount: {visitor_count}\n" \
                         f"releaseLang: {release_lang}\n"
-
+        
         print(formatted_data)
 
         links_with_text = [(a.text.strip(), a['href']) for a in content_div.find_all('a', href=True)]
@@ -60,8 +60,6 @@ def scrap_content(url):
             "all_images":all_images
             }
         return data
-
-    
 
 # url = "https://pib.gov.in/PressReleasePage.aspx?PRID=1959538"
 # print(scrap_content(url)['content'])

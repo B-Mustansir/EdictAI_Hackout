@@ -5,11 +5,12 @@ import azure.cognitiveservices.speech as speechsdk
 # import requests
 # import json
 # import time 
+from .env import *
 
 def large_tts_azure(chunk, meraNum):
 
     # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
-    speech_config = speechsdk.SpeechConfig(subscription="", region="")
+    speech_config = speechsdk.SpeechConfig(subscription=text_to_speech_azure_subscription_key, region="centralindia")
     audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 
     # The language of the voice that speaks.

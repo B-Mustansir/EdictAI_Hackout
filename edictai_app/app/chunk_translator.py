@@ -1,8 +1,9 @@
 from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
 from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
+from .env import *
 
-key = ""
+key = chunk_translator_key
 endpoint = "https://api.cognitive.microsofttranslator.com/"
 region = "centralindia"
 

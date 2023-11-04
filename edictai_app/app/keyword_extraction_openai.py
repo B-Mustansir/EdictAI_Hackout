@@ -1,84 +1,98 @@
 import openai
-import os
-import pprint
-import google.generativeai as palm
-from env import *
+from docx import Document
+from .env import *
 
-palm.configure(api_key=f'{generate_script_api_key}')
+audio_file_path = "blob_images/Shorts.mp4"
+openai.organization = generate_script_openai_organization
+openai.api_key = generate_script_openai_api_key
 
-models = [m for m in palm.list_models(
-) if 'generateText' in m.supported_generation_methods]
-model = models[0].name
+def transcribe_audio(audio_file_path):
+    with open(audio_file_path, 'rb') as audio_file:
+        transcription = openai.Audio.transcribe("whisper-1", audio_file)
+    return transcription['text']
 
-# def generate_script(news):
-#     # Prompt 1 for Creative Script Generation
-#     prompt = f"""Imagine yourself as a charismatic news anchor, ready to captivate your audience with an engaging video script. Craft a script based on the following news: "{news}".
-
-# Begin with a warm greeting and smoothly transition into highlighting the most significant and impactful points from the news article. Ensure that the script maintains an authentic and unbiased tone. Conclude the script by hinting at potential future developments, all within a video length of 60-90 seconds.
-
-# Remember, your goal is to inform, inspire, and engage your viewers. Make it captivating and creative while staying true to the news story.
-
-# Please break the script into meaningful chunks, each containing about 15-20 words, and separate them using <m>. """
-
-#     # Generate the creative script
-#     completion = palm.generate_text(
-#         model=model,
-#         prompt=prompt,
-#         temperature=0,
-#         max_output_tokens=2000,
-#     )
-
-#     # Prompt 2 for Chunk Extraction
-#     prompt2 = f"""Take the creative script you generated earlier and remove any stars or keywords associated with them. Extract the 'chunk lines' from the following creative script:
-
-# {completion.result}
-
-# Ensure that each chunk consists of 15-20 words and conveys a distinct message or idea. Your output should be a series of these <m>-separated 'chunk lines' derived from the creative script."""
-
-#     # Generate and return the extracted chunks
-#     completion2 = palm.generate_text(
-#         model=model,
-#         prompt=prompt2,
-#         temperature=0,
-#         max_output_tokens=4000,
-#     )
-#     print('completion2/n')
-#     print(completion2.result)
-#     return completion2.result
-
-# text = '''
-# The Prime Minister, Shri Narendra Modi interacted with Team G20 at Bharat Mandapam today. The Prime Minister also addressed the gathering on the occasion.
-# Speaking on the occasion, the Prime Minister underlined the accolades that are being showered for the successful organization of G20 and credited the ground level functionaries for this success.
-# '''
-
-# print(generate_script(text))
-
-
-def generate_script(news):
-    openai.organization = generate_script_openai_organization
-    openai.api_key = generate_script_openai_api_key
-    # print(openai.Model.list())
-
-    completion = openai.ChatCompletion.create(
+def abstract_summary_extraction(transcription):
+    response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
+        temperature=0,
         messages=[
-            {"role": "system", "content": "I want you to act as a Newsreader. I will provide you with a news article and you will create a script for to make a video out of it."},
-            {"role": "user", "content": '''
-        Ensure that the script maintains an authentic and unbiased tone. Consider the video length to be 60-90 seconds. Our goal is to inform viewers about the official news from the government, and engage the viewers to see news in a visual format. 
-        Please break the script into meaningful chunks with independent meaning.
-        Each chunk containing about 15-20 words.
-        Separate these chunks using "<m>" in the output.  
-        Note: Don't add any instructions or text in the output. Give the output in <m> tags only. 
-        '''},
-            {"role": "user", "content": f'''
-        News article: {news}
-        '''}
+            {
+                "role": "system",
+                "content": "You are a highly skilled AI trained in language comprehension and summarization. I would like you to read the following text and summarize it into a concise abstract paragraph. Aim to retain the most important points, providing a coherent and readable summary that could help a person understand the main points of the discussion without needing to read the entire text. Please avoid unnecessary details or tangential points."
+            },
+            {
+                "role": "user",
+                "content": transcription
+            }
         ]
     )
-    print(completion.choices[0].message.content)
-    return (completion.choices[0].message.content)
+    return response['choices'][0]['message']['content']
 
+def key_points_extraction(transcription):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        temperature=0,
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a proficient AI with a specialty in distilling information into key points. Based on the following text, identify and list the main points that were discussed or brought up. These should be the most important ideas, findings, or topics that are crucial to the essence of the discussion. Your goal is to provide a list that someone could read to quickly understand what was talked about."
+            },
+            {
+                "role": "user",
+                "content": transcription
+            }
+        ]
+    )
+    return response['choices'][0]['message']['content']
 
+def action_item_extraction(transcription):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        temperature=0,
+        messages=[
+            {
+                "role": "system",
+                "content": "You are an AI expert in analyzing conversations and extracting action items. Please review the text and identify any tasks, assignments, or actions that were agreed upon or mentioned as needing to be done. These could be tasks assigned to specific individuals, or general actions that the group has decided to take. Please list these action items clearly and concisely."
+            },
+            {
+                "role": "user",
+                "content": transcription
+            }
+        ]
+    )
+    return response['choices'][0]['message']['content']
+
+def sentiment_analysis(transcription):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        temperature=0,
+        messages=[
+            {
+                "role": "system",
+                "content": "As an AI with expertise in language and emotion analysis, your task is to analyze the sentiment of the following text. Please consider the overall tone of the discussion, the emotion conveyed by the language used, and the context in which words and phrases are used. Indicate whether the sentiment is generally positive, negative, or neutral, and provide brief explanations for your analysis where possible."
+            },
+            {
+                "role": "user",
+                "content": transcription
+            }
+        ]
+    )
+    return response['choices'][0]['message']['content']
+
+def meeting_minutes(transcription):
+    abstract_summary = abstract_summary_extraction(transcription)
+    key_points = key_points_extraction(transcription)
+    action_items = action_item_extraction(transcription)
+    sentiment = sentiment_analysis(transcription)
+    return {
+        'abstract_summary': abstract_summary,
+        'key_points': key_points,
+        'action_items': action_items,
+        'sentiment': sentiment
+    }
+
+# transcription = transcribe_audio(audio_file_path)
+# print(transcription)
 news = '''
 PM addresses Kaushal Dikshnat Samaroh 2023 via video message
 
@@ -116,5 +130,4 @@ Highlighting the recent figures released by the International Monetary Fund, the
 
 Concluding the address, the Prime Minister stressed making India the biggest center of skilled manpower in the world in order to provide smart and skilled manpower solutions. “The process of learning, teaching and moving forward should continue. May you be successful at every step in life”, the Prime Minister concluded. 
 '''
-
-# generate_script(news)
+print(meeting_minutes(news))
