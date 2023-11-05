@@ -42,7 +42,7 @@ To run the Edict.ai project on your machine, follow these steps:
 
 2. Navigate to the project directory:
    ```bash
-   cd edict.ai.v3
+   cd EdictAI_Hackout
    ```
 
 3. Install required dependencies using pip:
