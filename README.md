@@ -50,7 +50,9 @@ To run the Edict.ai project on your machine, follow these steps:
    pip install -r requirements.txt --no-cache-dir
    ```
 
-4. Start the development server:
+4. Update sample_config.json with your credentials and rename it to config.json
+
+5. Start the development server:
    ```bash
    python manage.py runserver
    ```
