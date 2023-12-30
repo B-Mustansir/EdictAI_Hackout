@@ -2,13 +2,17 @@ import openai
 import os
 import pprint
 import google.generativeai as palm
-from env import *
+import json
+with open('config.json', 'r') as c:
+    config_data = json.load(c)
+    generate_script_openai_organization = config_data['openai_organization'] 
+    generate_script_openai_api_key = config_data['openai_api_key'] 
 
-palm.configure(api_key=f'{generate_script_api_key}')
+# palm.configure(api_key=f'{generate_script_api_key}')
 
-models = [m for m in palm.list_models(
-) if 'generateText' in m.supported_generation_methods]
-model = models[0].name
+# models = [m for m in palm.list_models(
+# ) if 'generateText' in m.supported_generation_methods]
+# model = models[0].name
 
 # def generate_script(news):
 #     # Prompt 1 for Creative Script Generation

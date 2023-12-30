@@ -1,6 +1,11 @@
 import cloudinary
 import cloudinary.uploader
-from .env import *
+
+import json
+with open('config.json', 'r') as c:
+    config_data = json.load(c)
+    cloudinary_api_key = config_data['cloudinary_api_key']
+    cloudinary_api_secret = config_data['cloudinary_api_secret']  
 
 def upload_video(location):
     cloudinary.config( 

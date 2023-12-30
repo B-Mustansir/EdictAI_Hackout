@@ -1,1 +1,4 @@
 /edictai_app/app/env.py
+
+config.json
+/edictai_app/app/client_secrets.json

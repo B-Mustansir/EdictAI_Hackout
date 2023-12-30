@@ -1,6 +1,6 @@
 from keybert import KeyBERT
 import openai 
-from .env import *
+# from .env import *
 
 def keywords_extraction(sentence):
     kw_model = KeyBERT()

@@ -5,7 +5,11 @@ import azure.cognitiveservices.speech as speechsdk
 # import requests
 # import json
 # import time 
-from .env import *
+import json
+with open('config.json', 'r') as c:
+    config_data = json.load(c)
+    text_to_speech_azure_subscription_key = config_data['azure_speech_service_subscription_key']
+    
 
 def large_tts_azure(chunk, meraNum):
 

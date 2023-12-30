@@ -1,7 +1,11 @@
 from PIL import Image
 import io
 import requests
-from .env import *
+import json
+with open('config.json', 'r') as c:
+    config_data = json.load(c)
+    generate_script_openai_organization = config_data['openai_organization'] 
+    generate_script_openai_api_key = config_data['openai_api_key'] 
 
 def generate_image(query,chunk_number):
     import os

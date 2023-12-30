@@ -1,7 +1,11 @@
 import os, uuid
 from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
-from .env import *
+
+import json
+with open('config.json', 'r') as c:
+    config_data = json.load(c)
+    upload_blob_api_key = config_data['upload_blob_api_key']
 
 blob_service_client = BlobServiceClient.from_connection_string(f"DefaultEndpointsProtocol=https;AccountName=mentormeestorage;AccountKey=/{upload_blob_api_key}/GJ0lsRDkRgZf+AStG+6wlA==;EndpointSuffix=core.windows.net")
 container_client = blob_service_client.get_container_client(container= "images")

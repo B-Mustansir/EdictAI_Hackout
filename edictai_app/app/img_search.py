@@ -1,7 +1,11 @@
 import os
 from google_images_search import GoogleImagesSearch
 from .generate_image import *
-from .env import *
+import json
+with open('config.json', 'r') as c:
+    config_data = json.load(c)
+    img_search_1 = config_data['google_image_search_dev_api_key']
+    img_search_2 = config_data['google_image_search_project_cx']
 
 def google_image_search_api(query,chunk_number):
     
