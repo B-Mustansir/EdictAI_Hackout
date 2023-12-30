@@ -1,0 +1,10 @@
+{
+    "openai_organization": "", 
+    "openai_api_key": "", 
+    "azure_speech_service_subscription_key": "", 
+    "cloudinary_api_key": "",
+    "cloudinary_api_secret": "", 
+    "upload_blob_api_key": "",
+    "google_image_search_dev_api_key": "",
+    "google_image_search_project_cx": ""
+}
