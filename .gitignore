@@ -2,3 +2,6 @@
 
 config.json
 /edictai_app/app/client_secrets.json
+audios/
+images/
+videos/

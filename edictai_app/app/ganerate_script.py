@@ -1,8 +1,11 @@
-import openai
+from urllib.parse import urlparse
+from openai import OpenAI
+import requests
+import json
 import os
 import pprint
 import google.generativeai as palm
-import json
+
 with open('config.json', 'r') as c:
     config_data = json.load(c)
     generate_script_openai_organization = config_data['openai_organization'] 
@@ -59,11 +62,12 @@ with open('config.json', 'r') as c:
 
 
 def generate_script(news):
-    openai.organization = generate_script_openai_organization
-    openai.api_key = generate_script_openai_api_key
-    # print(openai.Model.list())
+    client = OpenAI(
+        organization=generate_script_openai_organization,
+        api_key=generate_script_openai_api_key,
+    )
 
-    completion = openai.ChatCompletion.create(
+    completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "I want you to act as a Newsreader. I will provide you with a news article and you will create a script for to make a video out of it."},

@@ -124,6 +124,7 @@ def edict_video(url):
         final_filename = f"videos/chunk_{i}.mp4"
 
         final_video.write_videofile(final_filename, fps=24)
+        # final_video.write_videofile(final_filename, fps=24, threads=4)
         video_filenames.append(final_filename)
 
 
