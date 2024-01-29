@@ -41,6 +41,12 @@
             padding: 0;
         }
 
+        h2{
+            color: #363062; /* Set heading color */
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 3vw;
+        }
+
         label {
             color: #555; /* Set label color */
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -73,30 +79,48 @@
             background-color: #333; /* Change button background color on hover */
         }
 
-        #loading-container {
+        .loading-container {
             display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1000;
-        }
-        
-        #video-form {
-            display: block;
+            text-align: center;
         }
 
-        #loading-spinner {
-            width: 300px;
-            height: 300px;
+        .loading-spinner {
+            width: 400px;
+            height: 400px;
         }
+
     </style>
 </head>
 <body>
 
-    <div id="loading-container">
-        <dotlottie-player src="https://lottie.host/fb29a20c-3b29-49a4-8c6e-0e578df8962b/jYlrVJLMBi.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></dotlottie-player>
+    <div id="extracting-news-container" class="loading-container">
+        <h2>Searching news</h2>
+        <div class="loading-spinner">
+            <dotlottie-player src="https://lottie.host/fb29a20c-3b29-49a4-8c6e-0e578df8962b/jYlrVJLMBi.json" background="transparent" speed="1" style="width: 100%; height: 100%;" autoplay></dotlottie-player>
+        </div>
     </div>
+    
+    <div id="generating-script-container" class="loading-container">
+        <h2>Crafting script</h2>
+        <div class="loading-spinner">
+            <dotlottie-player src="https://lottie.host/4c2636c5-10f3-43cb-ae86-8972bb82f2fc/g2a72YXzOA.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
+        </div>
+    </div>
+    
+    <div id="generating-video-container" class="loading-container">
+        <h2>Producing Video</h2>
+        <div class="loading-spinner">
+            <dotlottie-player src="https://lottie.host/c86d705c-5325-4202-9234-1b8dbc77992b/PuDLvqDDUp.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
+        </div>
+    </div>    
 
     <form id="video-form" action="/" method="post">
         <h1>Edict AI</h1>
@@ -110,18 +134,35 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var form = document.getElementById("video-form");
-            var loadingContainer = document.getElementById("loading-container");
-    
+            var extractingNewsContainer = document.getElementById("extracting-news-container");
+            var generatingScriptContainer = document.getElementById("generating-script-container");
+            var generatingVideoContainer = document.getElementById("generating-video-container");
+
             form.addEventListener("submit", function (event) {
-                // Show the loading container and hide the form
-                loadingContainer.style.display = "block";
+                // Show the extracting news loading container
+                extractingNewsContainer.style.display = "flex";
                 form.style.display = "none";
-    
-                // Optionally, you can disable the submit button to prevent multiple submissions
-                document.getElementById("submit-button").disabled = true;
-    
-                // Continue with form submission
-                return true;
+                event.preventDefault(); // Prevent the form from submitting (replace with your actual form submission logic)
+
+                // Simulate a delay for demonstration purposes
+                setTimeout(function () {
+                    // Hide the extracting news loading container and show the generating script loading container
+                    extractingNewsContainer.style.display = "none";
+                    generatingScriptContainer.style.display = "flex";
+
+                    // Simulate another delay for demonstration purposes
+                    setTimeout(function () {
+                        // Hide the generating script loading container and show the generating video loading container
+                        generatingScriptContainer.style.display = "none";
+                        generatingVideoContainer.style.display = "flex";
+
+                        // Simulate another delay for demonstration purposes
+                        setTimeout(function () {
+                            // Complete the loading process and submit the form (replace with your actual form submission logic)
+                            form.submit();
+                        }, 10000); // Adjust the delay as needed
+                    }, 10000); // Adjust the delay as needed
+                }, 10000); // Adjust the delay as needed
             });
         });
     </script>
