@@ -123,31 +123,37 @@ def google_image_search_api(query, chunk_number, limit=1):
                 # new_file_name = f'{filename}_{position}'
                 file_path = os.path.join(directory, new_file_name)
 
-                download_url = imageObject.get('link')
+                try:
+                    download_url = imageObject.get('link')
 
-                # Download the image
-                file_extension = download_file(download_url, directory, new_file_name)
-                print(file_extension)
-                print()
+                    # Download the image
+                    file_extension = download_file(download_url, directory, new_file_name)
+                    print(file_extension)
+                    print()
 
-                # Check the file extension
-                if file_extension is None or file_extension not in ['.png', '.jpg', '.jpeg', '.gif']:
-                    print(f"Skipping iteration for chunk {chunk_number} due to unsupported file extension.")
-                    os.remove(file_path+file_extension)  # Remove the downloaded file
+                    # Check the file extension
+                    if file_extension is None or file_extension not in ['.png', '.jpg', '.jpeg', '.gif']:
+                        print(f"Skipping iteration for chunk {chunk_number} due to unsupported file extension.")
+                        os.remove(file_path + file_extension)  # Remove the downloaded file
+                        continue
+                    else:
+                        file_path = file_path + file_extension
+                        break
+
+                    # Add information to output array
+                    outputJson = {
+                        'api': "google_image_search_api",
+                        'id': position,
+                        'source': imageObject.get('displayLink', ''),
+                        'title': imageObject.get('title', ''),
+                        'url': download_url,
+                    }
+                    outputArray.append(outputJson)
+
+                except Exception as download_error:
+                    print(f"Error downloading image for chunk {chunk_number} at position {position}: {download_error}")
+                    # Move to the next position if there is an error downloading the image
                     continue
-                else: 
-                    file_path = file_path + file_extension
-                    break
-
-                # Add information to output array
-                outputJson = {
-                    'api': "google_image_search_api",
-                    'id': position,
-                    'source': imageObject.get('displayLink', ''),
-                    'title': imageObject.get('title', ''),
-                    'url': download_url,
-                }
-                outputArray.append(outputJson)
 
             return file_path
 
@@ -156,6 +162,7 @@ def google_image_search_api(query, chunk_number, limit=1):
 
     # If no valid image was found, generate a placeholder image
     return file_path
+
 
 def rename_images():
 
