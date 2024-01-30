@@ -14,7 +14,7 @@ def gemini(chunk_list):
     model = genai.GenerativeModel('gemini-pro')
     prompt = f""" 
 Task:
-Given a list of chunks, {chunk_list}, your task is to modify each chunk by wrapping the i.mportant words inside HTML tags. Use tags like <b></b>, <strong></strong>, <i></i>, <u></u. Provide the modified list of chunks as the output without any additional details.
+Given a list of chunks, {chunk_list}, your task is to modify each chunk by wrapping the i.mportant words inside HTML tags. Use tags like <b></b>, <strong></strong>, <i></i>, <u></u. Provide the modified list of chunks as the output without any additional details. Make sure include every string inside the list in double quotes "".
     """ 
     print("Processing")
     response = model.generate_content([prompt])
@@ -24,7 +24,7 @@ Given a list of chunks, {chunk_list}, your task is to modify each chunk by wrapp
     return text
 
 
-def create_chunk_lists(subtitle_data, chunk_limit=10):
+def create_chunk_lists(subtitle_data, chunk_limit=5):
     chunk_lists = []
     current_chunk_list = []
 
@@ -187,6 +187,6 @@ def addTranscription(video_path):
     convert_to_srt(transcript, srtfile)
     addSubtitles(video_path, srtfile)
     remove_file("assets/input.wav")
+    return "final_output.mp4"
 
-
-# addTranscription("mohti.mp4")
+# addTranscription("news_edicted_17.mp4")

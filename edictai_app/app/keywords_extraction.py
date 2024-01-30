@@ -139,5 +139,5 @@ def get_keyword(chunk, aim):
     return output['keyword']
 
 
-keyword = get_keyword("This festival reflects the priorities of today's India, with the goal of empowering the youth and utilizing the nation's resources more effectively.", "Prime Minister's address on skill development and India's economic growth")
-print(keyword)
+# keyword = get_keyword("This festival reflects the priorities of today's India, with the goal of empowering the youth and utilizing the nation's resources more effectively.", "Prime Minister's address on skill development and India's economic growth")
+# print(keyword)

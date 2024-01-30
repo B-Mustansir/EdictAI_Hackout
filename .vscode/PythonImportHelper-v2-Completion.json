@@ -1099,6 +1099,15 @@
         "documentation": {}
     },
     {
+        "label": "PIL.Image",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "PIL.Image",
+        "description": "PIL.Image",
+        "detail": "PIL.Image",
+        "documentation": {}
+    },
+    {
         "label": "BeautifulSoup",
         "importPath": "bs4",
         "description": "bs4",
@@ -1123,7 +1132,7 @@
         "documentation": {}
     },
     {
-        "label": "keyword",
+        "label": "get_keyword",
         "importPath": "edictai_app.app.keywords_extraction",
         "description": "edictai_app.app.keywords_extraction",
         "isExtraImport": true,
@@ -1368,6 +1377,14 @@
         "documentation": {}
     },
     {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -1389,6 +1406,14 @@
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "importPath": "edictai_app.app.audio_test.ssml_1",
+        "description": "edictai_app.app.audio_test.ssml_1",
+        "isExtraImport": true,
+        "detail": "edictai_app.app.audio_test.ssml_1",
         "documentation": {}
     },
     {
@@ -1449,7 +1474,7 @@
         "kind": 5,
         "importPath": "EdictAI.settings",
         "description": "EdictAI.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'edictai_app',\n]\nMIDDLEWARE = [",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'edictai_app',\n    'corsheaders',\n]",
         "detail": "EdictAI.settings",
         "documentation": {}
     },
@@ -1458,7 +1483,7 @@
         "kind": 5,
         "importPath": "EdictAI.settings",
         "description": "EdictAI.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'EdictAI.urls'",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    'corsheaders.middleware.CorsMiddleware',\n]",
         "detail": "EdictAI.settings",
         "documentation": {}
     },
@@ -1566,7 +1591,7 @@
         "kind": 5,
         "importPath": "EdictAI.settings",
         "description": "EdictAI.settings",
-        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nEMAIL_HOST='smtp.gmail.com'\nEMAIL_PORT=587\nEMAIL_HOST_USER='forsih01@gmail.com'\nEMAIL_HOST_PASSWORD='pnyf ylhp dcqu dfft'\nEMAIL_USE_TLS= True",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nEMAIL_HOST='smtp.gmail.com'\nEMAIL_PORT=587\nEMAIL_HOST_USER='forsih01@gmail.com'\nEMAIL_HOST_PASSWORD='pnyf ylhp dcqu dfft'\nEMAIL_USE_TLS= True\nCORS_ALLOWED_ORIGINS = [\n    \"http://127.0.0.1:3000\",\n    \"http://localhost:3000\"",
         "detail": "EdictAI.settings",
         "documentation": {}
     },
@@ -1575,7 +1600,16 @@
         "kind": 5,
         "importPath": "EdictAI.settings",
         "description": "EdictAI.settings",
-        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nEMAIL_HOST='smtp.gmail.com'\nEMAIL_PORT=587\nEMAIL_HOST_USER='forsih01@gmail.com'\nEMAIL_HOST_PASSWORD='pnyf ylhp dcqu dfft'\nEMAIL_USE_TLS= True",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nEMAIL_HOST='smtp.gmail.com'\nEMAIL_PORT=587\nEMAIL_HOST_USER='forsih01@gmail.com'\nEMAIL_HOST_PASSWORD='pnyf ylhp dcqu dfft'\nEMAIL_USE_TLS= True\nCORS_ALLOWED_ORIGINS = [\n    \"http://127.0.0.1:3000\",\n    \"http://localhost:3000\"\n]",
+        "detail": "EdictAI.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOWED_ORIGINS",
+        "kind": 5,
+        "importPath": "EdictAI.settings",
+        "description": "EdictAI.settings",
+        "peekOfCode": "CORS_ALLOWED_ORIGINS = [\n    \"http://127.0.0.1:3000\",\n    \"http://localhost:3000\"\n]",
         "detail": "EdictAI.settings",
         "documentation": {}
     },
@@ -4185,7 +4219,7 @@
         "kind": 2,
         "importPath": "edictai_app.app.aadding_subtitle",
         "description": "edictai_app.app.aadding_subtitle",
-        "peekOfCode": "def gemini(chunk_list):\n    genai.configure(api_key=\"AIzaSyBT1VMTnJFfXuifJJBtmzNfMVdrmdpECHc\")\n    model = genai.GenerativeModel('gemini-pro')\n    prompt = f\"\"\" \nTask:\nGiven a list of chunks, {chunk_list}, your task is to modify each chunk by wrapping the i.mportant words inside HTML tags. Use tags like <b></b>, <strong></strong>, <i></i>, <u></u. Provide the modified list of chunks as the output without any additional details.\n    \"\"\" \n    print(\"Processing\")\n    response = model.generate_content([prompt])\n    text = response.text",
+        "peekOfCode": "def gemini(chunk_list):\n    genai.configure(api_key=\"AIzaSyBT1VMTnJFfXuifJJBtmzNfMVdrmdpECHc\")\n    model = genai.GenerativeModel('gemini-pro')\n    prompt = f\"\"\" \nTask:\nGiven a list of chunks, {chunk_list}, your task is to modify each chunk by wrapping the i.mportant words inside HTML tags. Use tags like <b></b>, <strong></strong>, <i></i>, <u></u. Provide the modified list of chunks as the output without any additional details. Make sure include every string inside the list in double quotes \"\".\n    \"\"\" \n    print(\"Processing\")\n    response = model.generate_content([prompt])\n    text = response.text",
         "detail": "edictai_app.app.aadding_subtitle",
         "documentation": {}
     },
@@ -4194,7 +4228,7 @@
         "kind": 2,
         "importPath": "edictai_app.app.aadding_subtitle",
         "description": "edictai_app.app.aadding_subtitle",
-        "peekOfCode": "def create_chunk_lists(subtitle_data, chunk_limit=10):\n    chunk_lists = []\n    current_chunk_list = []\n    for chunk in subtitle_data:\n        current_chunk_list.append(chunk)\n        if len(current_chunk_list) == chunk_limit:\n            chunk_lists.append(current_chunk_list)\n            current_chunk_list = []\n    if current_chunk_list:\n        chunk_lists.append(current_chunk_list)",
+        "peekOfCode": "def create_chunk_lists(subtitle_data, chunk_limit=5):\n    chunk_lists = []\n    current_chunk_list = []\n    for chunk in subtitle_data:\n        current_chunk_list.append(chunk)\n        if len(current_chunk_list) == chunk_limit:\n            chunk_lists.append(current_chunk_list)\n            current_chunk_list = []\n    if current_chunk_list:\n        chunk_lists.append(current_chunk_list)",
         "detail": "edictai_app.app.aadding_subtitle",
         "documentation": {}
     },
@@ -4286,6 +4320,15 @@
         "description": "edictai_app.app.aadding_subtitle",
         "peekOfCode": "def addTranscription(video_path):\n    # video_path = \"subtle.mp4\"\n    extract_audio(video_path)\n    words = text_transcription(\"assets/input.wav\")\n    chunks = wordToChunk(words)\n    chunk_lists = create_chunk_lists(chunks)\n    chunks_modified = []\n    for chunk_list in chunk_lists:\n        chunks = gemini(chunk_list)\n        newlist = ast.literal_eval(chunks)",
         "detail": "edictai_app.app.aadding_subtitle",
+        "documentation": {}
+    },
+    {
+        "label": "get_caption",
+        "kind": 2,
+        "importPath": "edictai_app.app.caption",
+        "description": "edictai_app.app.caption",
+        "peekOfCode": "def get_caption(img_path):\n    img = PIL.Image.open(img_path)\n    genai.configure(api_key=\"AIzaSyCs8uC60b6p7j4OCRGSNpXnZ7rW2fHP4DU\")\n    # Set up the model\n    generation_config = {\n        \"temperature\": 0.4,\n        \"top_p\": 1,\n        \"top_k\": 32,\n        \"max_output_tokens\": 4096,\n    }",
+        "detail": "edictai_app.app.caption",
         "documentation": {}
     },
     {
@@ -4451,15 +4494,6 @@
         "documentation": {}
     },
     {
-        "label": "keyword",
-        "kind": 5,
-        "importPath": "edictai_app.app.keywords_extraction",
-        "description": "edictai_app.app.keywords_extraction",
-        "peekOfCode": "keyword = get_keyword(\"This festival reflects the priorities of today's India, with the goal of empowering the youth and utilizing the nation's resources more effectively.\", \"Prime Minister's address on skill development and India's economic growth\")\nprint(keyword)",
-        "detail": "edictai_app.app.keywords_extraction",
-        "documentation": {}
-    },
-    {
         "label": "transcribe_audio",
         "kind": 2,
         "importPath": "edictai_app.app.keyword_extraction_openai",
@@ -4550,6 +4584,15 @@
         "documentation": {}
     },
     {
+        "label": "rename_file",
+        "kind": 2,
+        "importPath": "edictai_app.app.new_final",
+        "description": "edictai_app.app.new_final",
+        "peekOfCode": "def rename_file(original_path, new_name):\n    try:\n        print(\"entered renaming\")\n        directory, original_name = os.path.split(original_path)\n        new_path = os.path.join(directory, new_name)\n        if os.path.exists(new_path):\n            os.remove(new_path)\n        os.rename(original_path, new_path)\n        print(f\"File successfully renamed from {original_path} to {new_path}\")\n    except FileNotFoundError:",
+        "detail": "edictai_app.app.new_final",
+        "documentation": {}
+    },
+    {
         "label": "edict_video",
         "kind": 2,
         "importPath": "edictai_app.app.new_final",
@@ -4563,7 +4606,7 @@
         "kind": 2,
         "importPath": "edictai_app.app.run_upload_video",
         "description": "edictai_app.app.run_upload_video",
-        "peekOfCode": "def yt_upload_video(filename, title, description):\n    # topic = \"\"\n    # keywords = get_top_keywords(topic)\n    new_description = description.replace('\"', '')\n    working_directory = os.getcwd().replace('\\\\', '/')\n    print(working_directory)\n    os.system(f''' python3 {working_directory}/edictai/app/upload_video.py --file=\"{working_directory}/videos/{filename}\" --title=\"{title}\" --description=\"{new_description}\" --keywords=\"Edict.AI\" --category=\"22\" --privacyStatus=\"unlisted\" ''')\n# yt_upload_video(\"news_edicted_7.mp4\", \"laude ka title\", \"description ka lauda\")",
+        "peekOfCode": "def yt_upload_video(filename, title, description):\n    # topic = \"\"\n    # keywords = get_top_keywords(topic)\n    new_description = description.replace('\"', '')\n    working_directory = os.getcwd().replace('\\\\', '/')\n    print(working_directory)\n    os.system(f''' python3 {working_directory}/edictai/app/upload_video.py --file=\"{working_directory}/videos/{filename}\" --title=\"{title}\" --description=\"{new_description}\" --keywords=\"Edict.AI\" --category=\"22\" --privacyStatus=\"unlisted\" ''')\nyt_upload_video(\"output_video.mp4\", \" ka title\", \"description ka \")",
         "detail": "edictai_app.app.run_upload_video",
         "documentation": {}
     },
@@ -4640,6 +4683,15 @@
         "documentation": {}
     },
     {
+        "label": "semantic_search_web",
+        "kind": 2,
+        "importPath": "edictai_app.app.semantic_search",
+        "description": "edictai_app.app.semantic_search",
+        "peekOfCode": "def semantic_search_web(api_jsons, query2):\n    print(len(api_jsons))\n    final_sentences = []\n    print(final_sentences)\n    filtered_api_jsons = []  # Create a new list for filtered objects``\n    max_similarity_index = find_max_similarity_index(query2, final_sentences)\n    # print(\"filtered_api_jsons\")\n    # print(len(filtered_api_jsons))\n    # ans = []\n    # for i in max_similarity_index:",
+        "detail": "edictai_app.app.semantic_search",
+        "documentation": {}
+    },
+    {
         "label": "API_URL",
         "kind": 5,
         "importPath": "edictai_app.app.semantic_search",
@@ -4662,7 +4714,7 @@
         "kind": 2,
         "importPath": "edictai_app.app.seo_description",
         "description": "edictai_app.app.seo_description",
-        "peekOfCode": "def search_videos(query, max_results=10):\n    api_key = seo_description_api_key\n    url = f\"https://www.googleapis.com/youtube/v3/search?part=snippet&q={query}&type=video&order=relevance&maxResults={max_results}&key={api_key}\"\n    response = requests.get(url)\n    if response.status_code == 200:\n        data = response.json()\n        videos = []\n        for item in data[\"items\"]:\n            title = item[\"snippet\"][\"title\"]\n            videos.append({\"title\": title})",
+        "peekOfCode": "def search_videos(query, max_results=10):\n    api_key = \"AIzaSyChDd8Vx0INbI9A9NPmxeuhdSTuV1jCpfg\"\n    url = f\"https://www.googleapis.com/youtube/v3/search?part=snippet&q={query}&type=video&order=relevance&maxResults={max_results}&key={api_key}\"\n    response = requests.get(url)\n    if response.status_code == 200:\n        data = response.json()\n        videos = []\n        for item in data[\"items\"]:\n            title = item[\"snippet\"][\"title\"]\n            videos.append({\"title\": title})",
         "detail": "edictai_app.app.seo_description",
         "documentation": {}
     },
@@ -4950,7 +5002,7 @@
         "kind": 2,
         "importPath": "edictai_app.app.transition",
         "description": "edictai_app.app.transition",
-        "peekOfCode": "def pan_effect(input_image_path,custom_duration):\n    output_width = 1440\n    output_height = 2560\n    fps = 24\n    # Load the input image\n    image = cv2.imread(input_image_path)\n    # Calculate the aspect ratio of the input image\n    aspect_ratio = image.shape[1] / image.shape[0]\n    # Scale the image to match the output_height while maintaining aspect ratio\n    scaled_height = output_height",
+        "peekOfCode": "def pan_effect(input_image_path, custom_duration):\n    output_width = 1440\n    output_height = 2560\n    fps = 24\n    if input_image_path is None:\n        # If input image is None, create a black screen video\n        black_screen = np.zeros((output_height, output_width, 3), dtype=np.uint8)\n        out = cv2.VideoWriter('output_video.mp4', cv2.VideoWriter_fourcc(*'mp4v'), fps, (output_width, output_height))\n        for _ in range(int(custom_duration * fps)):\n            out.write(black_screen)",
         "detail": "edictai_app.app.transition",
         "documentation": {}
     },
@@ -4959,7 +5011,7 @@
         "kind": 5,
         "importPath": "edictai_app.app.transition",
         "description": "edictai_app.app.transition",
-        "peekOfCode": "input_image_path = 'chunk_3.jpg'\n# Set the output video properties\ndef pan_effect(input_image_path,custom_duration):\n    output_width = 1440\n    output_height = 2560\n    fps = 24\n    # Load the input image\n    image = cv2.imread(input_image_path)\n    # Calculate the aspect ratio of the input image\n    aspect_ratio = image.shape[1] / image.shape[0]",
+        "peekOfCode": "input_image_path = 'chunk_3.jpg'\n# Set the output video properties\n# def pan_effect(input_image_path,custom_duration):\n#     output_width = 1440\n#     output_height = 2560\n#     fps = 24\n#     # Load the input image\n#     image = cv2.imread(input_image_path)\n#     # Calculate the aspect ratio of the input image\n#     aspect_ratio = image.shape[1] / image.shape[0]",
         "detail": "edictai_app.app.transition",
         "documentation": {}
     },
@@ -5211,7 +5263,7 @@
         "kind": 5,
         "importPath": "edictai_app.urls",
         "description": "edictai_app.urls",
-        "peekOfCode": "urlpatterns = [\n    path('',views.index,name=\"index\"),\n    path(\"test/\",views.test,name=\"test\")\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
+        "peekOfCode": "urlpatterns = [\n    path('',views.index,name=\"index\"),\n    path(\"test/\",views.test,name=\"test\"),\n    path('posttest',csrf_exempt(views.posttest),name=\"posttest\")\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "edictai_app.urls",
         "documentation": {}
     },
@@ -5229,7 +5281,16 @@
         "kind": 2,
         "importPath": "edictai_app.views",
         "description": "edictai_app.views",
-        "peekOfCode": "def test(req):\n    path = Path(\"videos/chunk_7.mp4\")\n    video=Videos()\n    with path.open(mode=\"rb\") as f:\n        video.name=\"ASif\"\n        video.video = File(f, name=path.name)\n        video.save()\n    return HttpResponse(\"Test chal raha hai\")\n# Create your views here.",
+        "peekOfCode": "def test(req):\n    path = Path(\"videos/chunk_7.mp4\")\n    video=Videos()\n    with path.open(mode=\"rb\") as f:\n        video.name=\"ASif\"\n        video.video = File(f, name=path.name)\n        video.save()\n    return HttpResponse(\"Test chal raha hai\")\ndef posttest(req):\n    print(\"body\",req.body)",
+        "detail": "edictai_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "posttest",
+        "kind": 2,
+        "importPath": "edictai_app.views",
+        "description": "edictai_app.views",
+        "peekOfCode": "def posttest(req):\n    print(\"body\",req.body)\n    json_data = req.body.decode('utf-8')\n    python_data = json.loads(json_data)\n    print(python_data['name'])\n    return HttpResponse(\"Test chal raha hai\")\n# Create your views here.",
         "detail": "edictai_app.views",
         "documentation": {}
     },

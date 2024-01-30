@@ -121,3 +121,21 @@ def semantic_search(api_jsons, query2):
 
     # Fix: Return the entire list, not just one element
     return ans
+
+def semantic_search_web(api_jsons, query2):
+    print(len(api_jsons))
+    final_sentences = []
+    print(final_sentences)
+
+    filtered_api_jsons = []  # Create a new list for filtered objects``
+    
+    max_similarity_index = find_max_similarity_index(query2, final_sentences)
+
+    # print("filtered_api_jsons")
+    # print(len(filtered_api_jsons))
+    # ans = []
+    # for i in max_similarity_index:
+    #     ans.append(filtered_api_jsons[i])
+
+    # Fix: Return the entire list, not just one element
+    return max_similarity_index

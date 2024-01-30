@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:01,060
+ Good  evening,  ladies <b>and</b> gentlemen.  <b>I</b>
+
+2
+00:00:03,240 --> 00:00:04,540
+ am  your  host  and  today <b>I</b>  bring  you  an  <b>important</b>
+
+3
+00:00:05,660 --> 00:00:06,879
+ news  story  that  pays
+
+4
+00:00:06,879 --> 00:00:07,820
+<em>homage</em>  to  a  <ins>great</ins>
+
+5
+00:00:07,820 --> 00:00:09,400
+ <ins>leader</ins>.  The
+
+6
+00:00:09,400 --> 00:00:10,220
+<u>president</u>  of  <u>India</u>,
+
+7
+00:00:10,640 --> 00:00:11,919
+ <u>SMT</u>  <u>Girpati</u>  <u>Murmu</u>,
+
+8
+00:00:12,320 --> 00:00:13,519
+ paid  <em>homage</em>  to  <u>Nataji</u>
+
+9
+00:00:13,519 --> 00:00:14,599
+<u.Subhas</u.> <i.Chunder</i.> <u.Bose</u.>
+
+10
+00:00:14,599 --> 00:00:15,859
+ on <u.his</u.> <i.birth</i.>. <u.anniversary</u>.
+
+11
+00:00:16,839 --> 00:00:17,300
+ Today
+
+12
+00:00:17,300 --> 00:00:18,699
+ is <u.a</u.> <u.special</u.> <i.day</i.> as
+
+13
+00:00:18,699 --> 00:00:19,660
+ it <u.is</u.> <u.being</u.> <u.celebrated</u>
+
+14
+00:00:19,660 --> 00:00:20,940
+ as  <b>Parakram</b>  Divas.
+
+15
+00:00:21,600 --> 00:00:22,140
+ In
+
+16
+00:00:22,140 --> 00:00:23,379
+ a  <b>solemn</b>  ceremony  at
+
+17
+00:00:23,379 --> 00:00:24,760
+ Rashtrapati  Baben,  the
+
+18
+00:00:24,760 --> 00:00:25,859
+ president  offered  floral
+
+19
+00:00:25,859 --> 00:00:26,899
+ tributes <b>in</b> <i>front</i> <u>of</u>
+
+20
+00:00:26,899 --> 00:00:28,019
+ a <b>portrait</b> <u>of</u> <b>Nataji</b>.
+
+21
+00:00:28,940 --> 00:00:29,339
+<b>This</b>
+
+22
+00:00:29,339 --> 00:00:30,539
+ gesture <b>symbolizes</b> <u>the</u>
+
+23
+00:00:30,539 --> 00:00:31,559
+ <u>respect</u> <strong>and</strong> <u>admiration</u>
+
+24
+00:00:31,559 --> 00:00:32,679
+that  <b><ins>the</ins></b>  <b><ins>nation</ins></b> <ins>holds</ins>
+
+25
+00:00:32,679 --> 00:00:33,840
+for  <ins>this</ins> <i>iconic</i> <ins>figure</ins>.
+
