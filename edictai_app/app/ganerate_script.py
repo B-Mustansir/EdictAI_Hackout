@@ -61,30 +61,30 @@ with open('config.json', 'r') as c:
 # print(generate_script(text))
 
 
-def generate_script(news):
-    client = OpenAI(
-        organization=generate_script_openai_organization,
-        api_key=generate_script_openai_api_key,
-    )
+# def generate_script(news):
+#     client = OpenAI(
+#         organization=generate_script_openai_organization,
+#         api_key=generate_script_openai_api_key,
+#     )
 
-    completion = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "I want you to act as a Newsreader. I will provide you with a news article and you will create a script for to make a video out of it."},
-            {"role": "user", "content": '''
-        Ensure that the script maintains an authentic and unbiased tone. Consider the video length to be 60-90 seconds. Our goal is to inform viewers about the official news from the government, and engage the viewers to see news in a visual format. 
-        Please break the script into meaningful chunks with independent meaning.
-        Each chunk containing about 15-20 words.
-        Separate these chunks using "<m>" in the output.  
-        Note: Don't add any instructions or text in the output. Give the output in <m> tags only. 
-        '''},
-            {"role": "user", "content": f'''
-        News article: {news}
-        '''}
-        ]
-    )
-    print(completion.choices[0].message.content)
-    return (completion.choices[0].message.content)
+#     completion = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#             {"role": "system", "content": "I want you to act as a Newsreader. I will provide you with a news article and you will create a script for to make a video out of it."},
+#             {"role": "user", "content": '''
+#         Ensure that the script maintains an authentic and unbiased tone. Consider the video length to be 60-90 seconds. Our goal is to inform viewers about the official news from the government, and engage the viewers to see news in a visual format. 
+#         Please break the script into meaningful chunks with independent meaning.
+#         Each chunk containing about 15-20 words.
+#         Separate these chunks using "<m>" in the output.  
+#         Note: Don't add any instructions or text in the output. Give the output in <m> tags only. 
+#         '''},
+#             {"role": "user", "content": f'''
+#         News article: {news}
+#         '''}
+#         ]
+#     )
+#     print(completion.choices[0].message.content)
+#     return (completion.choices[0].message.content)
 
 
 news = '''
@@ -126,3 +126,82 @@ Concluding the address, the Prime Minister stressed making India the biggest cen
 '''
 
 # generate_script(news)
+
+
+def generate_script(user_input):
+    # Ask ChatGPT to generate a script in JSON format
+
+    print("Sahi call")
+    print(user_input)
+    shorts_prompt = f"""Imagine yourself as a news anchor, ready to captivate your audience with an engaging video script.  You can compress script so that it can be covered in 60-90 seconds.
+    Script is: {user_input}.
+Begin with a warm greeting and smoothly transition into highlighting the most significant and impactful points from the news article.
+Ensure that the script maintains an authentic and unbiased tone. Conclude the script by hinting at potential future developments, all within a video length of 60-90 seconds.
+Remember, your goal is to inform, inspire, and engage your viewers. Make it captivating and creative while staying true to the news story.
+"""
+
+    client = OpenAI(
+        api_key="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", 
+    )
+    
+    completion = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpul chunk maker out of a script."},
+            {"role": "user", "content": shorts_prompt},
+        ],
+        functions=[
+            {
+                "name": "script_gen",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "Script": {"type": "string", "description": "Give a final script which can be said in 60-90 seconds."},
+                        
+                        "aim": {"type": "string", "description": "Overall aim of the script as context, which will define the region, and important aspect of complete script."}
+                    },
+                    "required": ["Script", "aim"]
+                }
+            }
+        ],
+    )
+
+ 
+    generated_text = completion.choices[0].message.function_call.arguments
+    # print("generated text is",generated_text)
+    output = json.loads(generated_text)
+    
+    script_4_chunking = output['Script']
+    
+    completion2 = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpul chunk maker out of a script."},
+            {"role": "user", "content": f"""You have to divide the given script into meaningful chunks.Each chunk ends meaningfully and also length of each chunk is not more than 10-15 words.
+             And each chunk must be ends with <m>.
+             Script is {script_4_chunking}"""},
+        ],
+        functions=[
+            {
+                "name": "chunk",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "chunks": {"type": "string", "description": "Generated strictly 15-20 words chunks of script and each chunk must end with <m>."},
+                    },
+                    "required": ["chunks"]
+                }
+            }
+        ],
+    )
+    
+    generated_text = completion2.choices[0].message.function_call.arguments
+    # print("generated text is",generated_text)
+    output2 = json.loads(generated_text)
+    
+    # print("output is",output)
+    return output2['chunks'],output['aim']
+
+# x,y=generate_script(news)
+# print(x)
+# print(y)

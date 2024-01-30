@@ -9,7 +9,7 @@ def pan_effect(input_image_path,custom_duration):
     output_width = 1440
     output_height = 2560
     fps = 24
-
+    
     # Load the input image
     image = cv2.imread(input_image_path)
 

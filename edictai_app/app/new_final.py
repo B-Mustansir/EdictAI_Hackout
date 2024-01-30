@@ -4,6 +4,8 @@ from moviepy.editor import *
 from moviepy.editor import *
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 from moviepy.editor import *
+from edictai_app.app.scraper import url_select
+from edictai_app.app.keywords_extraction import keyword
 from . import keywords_extraction
 from . import img_search
 from .text_to_speech_azure import large_tts_azure
@@ -18,9 +20,11 @@ from pathlib import Path
 from django.core.files import File
 from django.core.mail import send_mail, EmailMultiAlternatives
 from .upload_blob import blob_file_upload
+from .semantic_search import semantic_search
+from .aadding_subtitle import addTranscription
+from edictai_app.app.generateImage import generate_image
 
-
-def edict_video(url):
+def edict_video(url,content_passed):
     
 
     # Web Scraping
@@ -35,10 +39,26 @@ def edict_video(url):
     #         "all_images":all_images
     #         }
     # data = url_select(url)
-    data_dict=content_scraper.scrap_content(url)
-    
+    data_dict=None
+    data=None
+    context = None
+    if(content_passed =="url_pass"):
+        print("its url which is passed")
+        print("url",url)
+        if "pib.gov" in url:
+            print("yes its pib")
+            data_dict=content_scraper.scrap_content(url)
+           
+        else:
+            data_dict=url_select(url)
+        data,context=ganerate_script.generate_script(data_dict['content'])
+    else:
+        print("its content passed")
+        data,context=ganerate_script.generate_script(url)
+        data_dict['title'] = context
+        
     # data=data_dict['content']
-    data=ganerate_script.generate_script(data_dict['content'])
+    
     print(data)
 
     # News Authentication 
@@ -74,10 +94,37 @@ def edict_video(url):
 
     # Image Search
     for i, chunk in enumerate(chunks):
-            keywords = keywords_extraction.keywords_extraction(chunk)
+            keywords = keywords_extraction.get_keyword(chunk,context)
             print(keywords)
-            image_filename = img_search.google_image_search_api(keywords, i)
-            image_filenames.append(image_filename)
+            # image_filename = img_search.google_image_search_api(keywords, i)
+            r = 0
+            api_json=img_search.multiple_image_search_google(keywords,i);
+            final_url=semantic_search(api_json,keywords)
+            while(1):
+                if(r==len(final_url)):
+                    download = generate_image(keywords, i)
+                    print("filename",download)
+                    image_filenames.append(download)
+                    break
+                print("final url")
+                print(final_url)
+                try:
+                    download=img_search.multiple_image_search_google(query=keywords,chunk_number=i,url=final_url[r]['url'])
+                except:
+                    download = generate_image(keywords, i)
+                print("print down",download)
+                file_extension = os.path.splitext(download)[1]
+                if file_extension is None or file_extension not in ['.png', '.jpg', '.jpeg', '.gif']:
+                    os.remove("images/"+download)  # Remove the downloaded file
+                    # img_search.multiple_image_search_google(keywords,i,limit=3,download_limit=1,url=None)
+                    r = r+1
+                    continue
+                else:
+                    print("filename",download)
+                    image_filenames.append(download)
+                    break
+
+
         # else:
         #     for single_data in data: 
         #         image_filename = single_data["image_path"]
@@ -115,16 +162,16 @@ def edict_video(url):
 
         textembed = TextClip(new_chunk, fontsize=48, color="white", font="Arial-Rounded-MT-Bold",bg_color="gray").set_position(("center", "bottom"))
 
-        video_chunk = VideoFileClip(pan_effect(image_filenames[i], audio_duration))
+        video_chunk = VideoFileClip(pan_effect(f"images/{image_filenames[i]}", audio_duration))
 
         textembed = textembed.set_duration(audio_duration)
 
-        final_video = CompositeVideoClip([video_chunk.set_audio(audios[i]), textembed])
+        final_video = CompositeVideoClip([video_chunk.set_audio(audios[i]),textembed])
 
         final_filename = f"videos/chunk_{i}.mp4"
 
         final_video.write_videofile(final_filename, fps=24)
-        # final_video.write_videofile(final_filename, fps=24, threads=4)
+        final_video.write_videofile(final_filename, fps=24, threads=4)
         video_filenames.append(final_filename)
 
 
@@ -143,10 +190,12 @@ def edict_video(url):
     final_video = final_clip.set_audio(final_audio)
     # write the final video to file
     final_video.write_videofile("videos/news_edicted_17.mp4",codec="libx264")
-    link=upload_video("videos/news_edicted_17.mp4")
+    # final_subtitled_vid = addTranscription("videos/news_edicted_17.mp4")
+    final_subtitled_vid = "videos/news_edicted_17.mp4"
+    link=upload_video(final_subtitled_vid)
     print(link)
     video=Videos()
-    path = Path("videos/news_edicted_17.mp4")
+    path = Path(final_subtitled_vid)
     id=0
     with path.open(mode="rb") as f:
         video.name=data_dict['title']

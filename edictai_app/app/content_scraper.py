@@ -8,6 +8,8 @@ import re
 
 def scrap_content(url):
     response = requests.get(url)
+    print("url from scrpe content",url)
+    
 
     if response.status_code == 200:
         

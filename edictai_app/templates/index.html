@@ -97,6 +97,10 @@
             height: 400px;
         }
 
+        .hidden {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -123,13 +127,21 @@
     </div>    
 
     <form id="video-form" action="/" method="post">
-        <h1>Edict AI</h1>
         {% csrf_token %}
+        <h1>Edict AI</h1>
+        <div style="display: flex; gap: 1rem; font-size: 2rem">
+            <label>Web Url: </label>
+            <input type="radio" name="contentorurl" value="url_pass" onclick="toggleInput('url')"> 
+            <label>Content: </label>
+            <input type="radio" name="contentorurl" value="content_pass" onclick="toggleInput('content')">   
+        </div>
         <div class="input-group mb-3">
             <input type="text" id="url" name="url" class="form-control" placeholder="Search news or type a URL">
-            <button type="submit" class="btn btn-primary">Create video</button>
         </div>
+        <textarea style="margin:1rem" placeholder="enter content here" name="url2" id="content" class="form-control hidden"></textarea> 
+        <button type="submit" class="btn btn-primary">Create video</button>
     </form>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -165,6 +177,20 @@
                 }, 3000); // Adjust the delay as needed
             });
         });
+    </script>
+    <script>
+        function toggleInput(inputType) {
+            var urlInput = document.getElementById('url');
+            var contentInput = document.getElementById('content');
+
+            if (inputType === 'url') {
+                urlInput.classList.remove('hidden');
+                contentInput.classList.add('hidden');
+            } else {
+                urlInput.classList.add('hidden');
+                contentInput.classList.remove('hidden');
+            }
+        }
     </script>
 
     <!-- JS files -->

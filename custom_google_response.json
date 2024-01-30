@@ -1,0 +1,254 @@
+{
+    "kind": "customsearch#search",
+    "url": {
+        "type": "application/json",
+        "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+    },
+    "queries": {
+        "request": [
+            {
+                "title": "Google Custom Search - daily news",
+                "totalResults": "53900000",
+                "searchTerms": "daily news",
+                "count": 10,
+                "startIndex": 1,
+                "inputEncoding": "utf8",
+                "outputEncoding": "utf8",
+                "safe": "off",
+                "cx": "86801e16abe5a4304",
+                "gl": "in",
+                "cr": "countryIN",
+                "searchType": "image",
+                "imgSize": "huge"
+            }
+        ],
+        "nextPage": [
+            {
+                "title": "Google Custom Search - daily news",
+                "totalResults": "53900000",
+                "searchTerms": "daily news",
+                "count": 10,
+                "startIndex": 11,
+                "inputEncoding": "utf8",
+                "outputEncoding": "utf8",
+                "safe": "off",
+                "cx": "86801e16abe5a4304",
+                "gl": "in",
+                "cr": "countryIN",
+                "searchType": "image",
+                "imgSize": "huge"
+            }
+        ]
+    },
+    "context": {
+        "title": "edictai-adcet"
+    },
+    "searchInformation": {
+        "searchTime": 0.521436,
+        "formattedSearchTime": "0.52",
+        "totalResults": "53900000",
+        "formattedTotalResults": "53,900,000"
+    },
+    "items": [
+        {
+            "kind": "customsearch#result",
+            "title": "About Us",
+            "htmlTitle": "About Us",
+            "link": "https://dailynews56.in/wp-content/uploads/2023/10/DN-LOGO-scaled.jpg",
+            "displayLink": "dailynews56.in",
+            "snippet": "About Us",
+            "htmlSnippet": "About Us",
+            "mime": "image/jpeg",
+            "fileFormat": "image/jpeg",
+            "image": {
+                "contextLink": "https://dailynews56.in/about-us/",
+                "height": 2560,
+                "width": 2560,
+                "byteSize": 168910,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI31hoAqVf9nLNdD_pU5JjeAWYz9keWl9DhRN2IIpbI04vveDjFZLCuVi8&s",
+                "thumbnailHeight": 150,
+                "thumbnailWidth": 150
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Daily News - Daily News \u0928\u0947 \u0928\u0908 \u092b\u093c\u094b\u091f\u094b \u091c\u094b\u0921\u093c\u0940.",
+            "htmlTitle": "<b>Daily News</b> - <b>Daily News</b> \u0928\u0947 \u0928\u0908 \u092b\u093c\u094b\u091f\u094b \u091c\u094b\u0921\u093c\u0940.",
+            "link": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=3502677703099565",
+            "displayLink": "hi-in.facebook.com",
+            "snippet": "Daily News - Daily News \u0928\u0947 \u0928\u0908 \u092b\u093c\u094b\u091f\u094b \u091c\u094b\u0921\u093c\u0940.",
+            "htmlSnippet": "<b>Daily News</b> - <b>Daily News</b> \u0928\u0947 \u0928\u0908 \u092b\u093c\u094b\u091f\u094b \u091c\u094b\u0921\u093c\u0940.",
+            "mime": "image/",
+            "fileFormat": "image/",
+            "image": {
+                "contextLink": "https://hi-in.facebook.com/DailyNewsZim/photos/a.276638435703524/3502677703099565/",
+                "height": 1920,
+                "width": 1309,
+                "byteSize": 367140,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIfxfvxd2zThXpmBNh_8Uh4EVjJdSmCYZcsDTnwl2N5p0UCaF1noavzqU&s",
+                "thumbnailHeight": 150,
+                "thumbnailWidth": 102
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "EP-282 | Daily Global Insights | Nov 23, 2021 | Daily News and ...",
+            "htmlTitle": "EP-282 | <b>Daily</b> Global Insights | Nov 23, 2021 | <b>Daily News</b> and ...",
+            "link": "https://www.pgurus.com/wp-content/uploads/2021/11/EP-282-1.jpg",
+            "displayLink": "www.pgurus.com",
+            "snippet": "EP-282 | Daily Global Insights | Nov 23, 2021 | Daily News and ...",
+            "htmlSnippet": "EP-282 | <b>Daily</b> Global Insights | Nov 23, 2021 | <b>Daily News</b> and ...",
+            "mime": "image/jpeg",
+            "fileFormat": "image/jpeg",
+            "image": {
+                "contextLink": "https://www.pgurus.com/ep-282-daily-global-insights-nov-23-2021-daily-news-and-analysis-with-sri-and-sree/",
+                "height": 1080,
+                "width": 1920,
+                "byteSize": 76423,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgLhGI8MKi3HvOnPYJg6Y1iYFue67Wo3qElR8fGIO4wB8STyS_HWiT9xg&s",
+                "thumbnailHeight": 84,
+                "thumbnailWidth": 150
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "LIMITED TIME OFFER - Brides! Grooms!... - Pacific Daily News ...",
+            "htmlTitle": "LIMITED TIME OFFER - Brides! Grooms!... - Pacific <b>Daily News</b> ...",
+            "link": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=759733926184660",
+            "displayLink": "m.facebook.com",
+            "snippet": "LIMITED TIME OFFER - Brides! Grooms!... - Pacific Daily News ...",
+            "htmlSnippet": "LIMITED TIME OFFER - Brides! Grooms!... - Pacific <b>Daily News</b> ...",
+            "mime": "image/",
+            "fileFormat": "image/",
+            "image": {
+                "contextLink": "https://m.facebook.com/GuamPDN/posts/limited-time-offer-brides-grooms-click-on-the-link-below-to-preregister-for-the-/10153267931129574/?locale=hi_IN",
+                "height": 2048,
+                "width": 1598,
+                "byteSize": 761705,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzLZ18W0SV2hQU2nEUsWOedH-kTxHawRcmJGkoq4-ZMCZHeKdfcjmLmI4&s",
+                "thumbnailHeight": 150,
+                "thumbnailWidth": 117
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Home - District Daily News",
+            "htmlTitle": "Home - District <b>Daily News</b>",
+            "link": "https://districtdailynews.in/wp-content/uploads/2023/05/cropped-48.png",
+            "displayLink": "districtdailynews.in",
+            "snippet": "Home - District Daily News",
+            "htmlSnippet": "Home - District <b>Daily News</b>",
+            "mime": "image/png",
+            "fileFormat": "image/png",
+            "image": {
+                "contextLink": "https://districtdailynews.in/",
+                "height": 1295,
+                "width": 2367,
+                "byteSize": 125792,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7JkNtcrymaGir0hI4Pw4qq7fuWINl5AoI83EgKawO48Ac5Uij7GEgwg&s",
+                "thumbnailHeight": 82,
+                "thumbnailWidth": 150
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Daily News | Harare",
+            "htmlTitle": "<b>Daily News</b> | Harare",
+            "link": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=6746579392042697",
+            "displayLink": "www.facebook.com",
+            "snippet": "Daily News | Harare",
+            "htmlSnippet": "<b>Daily News</b> | Harare",
+            "mime": "image/",
+            "fileFormat": "image/",
+            "image": {
+                "contextLink": "https://www.facebook.com/DailyNewsZim/?locale=hi_IN",
+                "height": 2048,
+                "width": 1479,
+                "byteSize": 456142,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA7F89RBWE2QWmDzkRH8uDlH6QgV0JtnyL81Me_k3fxCde9wooPbVvRS0&s",
+                "thumbnailHeight": 150,
+                "thumbnailWidth": 108
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Daily NewsPK | LinkedIn",
+            "htmlTitle": "<b>Daily</b> NewsPK | LinkedIn",
+            "link": "https://media.licdn.com/dms/image/C4D1BAQEPMEmVa0mC3A/company-background_10000/0/1597667867278/dailynewspk_cover?e=2147483647&v=beta&t=F9UBrbNy5EKxOuCM5iTogTKalHW2vgd-tYN9FL4pdYE",
+            "displayLink": "in.linkedin.com",
+            "snippet": "Daily NewsPK | LinkedIn",
+            "htmlSnippet": "<b>Daily</b> NewsPK | LinkedIn",
+            "mime": "image/",
+            "fileFormat": "image/",
+            "image": {
+                "contextLink": "https://in.linkedin.com/company/dailynewspk",
+                "height": 1152,
+                "width": 2048,
+                "byteSize": 123162,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlQEc09-ZFFZ4eZhboQcyrAn5D36D9WD9qDRtKNQZ1SwOvCc6RPnfs-XY&s",
+                "thumbnailHeight": 84,
+                "thumbnailWidth": 150
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Daily News - Daily News \u0928\u0947 \u0928\u0908 \u092b\u093c\u094b\u091f\u094b \u091c\u094b\u0921\u093c\u0940.",
+            "htmlTitle": "<b>Daily News</b> - <b>Daily News</b> \u0928\u0947 \u0928\u0908 \u092b\u093c\u094b\u091f\u094b \u091c\u094b\u0921\u093c\u0940.",
+            "link": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=3474317882602214",
+            "displayLink": "m.facebook.com",
+            "snippet": "Daily News - Daily News \u0928\u0947 \u0928\u0908 \u092b\u093c\u094b\u091f\u094b \u091c\u094b\u0921\u093c\u0940.",
+            "htmlSnippet": "<b>Daily News</b> - <b>Daily News</b> \u0928\u0947 \u0928\u0908 \u092b\u093c\u094b\u091f\u094b \u091c\u094b\u0921\u093c\u0940.",
+            "mime": "image/",
+            "fileFormat": "image/",
+            "image": {
+                "contextLink": "https://m.facebook.com/DailyNewsZim/posts/d41d8cd9/3474317882602214/?locale=hi_IN",
+                "height": 1920,
+                "width": 1309,
+                "byteSize": 336376,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThf9GrnKqkKHQ-dcs0dHygZ3jw_5AMry9rqS5WLrmrTOBeZq4PKLKWHPs&s",
+                "thumbnailHeight": 150,
+                "thumbnailWidth": 102
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "US High-Altitude Balloons Repeatedly Flew Over China",
+            "htmlTitle": "US High-Altitude Balloons Repeatedly Flew Over China",
+            "link": "https://cdn1.img.sputniknews.in/img/07e7/02/0f/894027_0:156:3001:1844_1920x0_80_0_0_2ccda623e8201f28dcc9d8bf96e113ba.jpg",
+            "displayLink": "sputniknews.in",
+            "snippet": "US High-Altitude Balloons Repeatedly Flew Over China",
+            "htmlSnippet": "US High-Altitude Balloons Repeatedly Flew Over China",
+            "mime": "image/jpeg",
+            "fileFormat": "image/jpeg",
+            "image": {
+                "contextLink": "https://sputniknews.in/20230215/us-high-altitude-balloons-repeatedly-flew-over-china-beijing-894191.html",
+                "height": 1080,
+                "width": 1920,
+                "byteSize": 350608,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRokfS57x28Bn3qxLZgFRJlt_Cwnkoziqflw_3VpWaV8pczfzpshsnAX5U&s",
+                "thumbnailHeight": 84,
+                "thumbnailWidth": 150
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Police reject Pacific Daily News'... - Pacific Daily News | Facebook",
+            "htmlTitle": "Police reject Pacific <b>Daily News</b>&#39;... - Pacific <b>Daily News</b> | Facebook",
+            "link": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1317232819025429&get_thumbnail=1",
+            "displayLink": "www.facebook.com",
+            "snippet": "Police reject Pacific Daily News'... - Pacific Daily News | Facebook",
+            "htmlSnippet": "Police reject Pacific <b>Daily News</b>&#39;... - Pacific <b>Daily News</b> | Facebook",
+            "mime": "image/",
+            "fileFormat": "image/",
+            "image": {
+                "contextLink": "https://www.facebook.com/GuamPDN/posts/police-reject-pacific-daily-news-request-for-copies-of-departments-firearm-and-u/10156532778929574/?locale=hi_IN",
+                "height": 1080,
+                "width": 1920,
+                "byteSize": 247543,
+                "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYt-14QzLt9mSuLdKgGe_pQjfwdHIkaLR4U39Lx2zvQilLu11c0x25CqM&s",
+                "thumbnailHeight": 84,
+                "thumbnailWidth": 150
+            }
+        }
+    ]
+}

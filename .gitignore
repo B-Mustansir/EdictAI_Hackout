@@ -6,3 +6,8 @@ audios/
 images/
 videos/
 *.pyc
+*.pycache
+*.mp3
+*.mp4
+media/
+/edictai_app/app/__pycache__

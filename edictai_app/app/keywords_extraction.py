@@ -4,7 +4,7 @@ import json
 # from .env import *
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
-
+import google.generativeai as genai
 with open('config.json', 'r') as c:
     config_data = json.load(c)
     azure_language_resource_api_key = config_data['azure_language_resource_api_key'] 
@@ -63,3 +63,81 @@ def keywords_extraction(sentence, key=azure_language_resource_api_key, endpoint=
 #     sentence = "In a remarkable display of bravery and expertise, the Indian Naval Ship Sumitra has successfully carried out its second anti-piracy operation off the coast of Somalia."
 #     result = keywords_extraction(sentence)
 #     print(result)
+
+
+
+
+# def get_keyword(chunk, aim):
+#     genai.configure(api_key="AIzaSyCs8uC60b6p7j4OCRGSNpXnZ7rW2fHP4DU")
+
+#     # Set up the model
+#     generation_config = {
+#         "temperature": 0.9,
+#         "top_p": 1,
+#         "top_k": 1,
+#         "max_output_tokens": 2048,
+#     }
+#     model = genai.GenerativeModel(model_name="gemini-pro",
+#                                   generation_config=generation_config,
+#                                   )  # assuming safety_settings is defined
+
+#     prompt_parts = [
+#         f"""below are the script chunk of a video, The context and aim of video is {aim},
+#         provide us keywords which can be important entity corresponding to the chunk keeping context in mind.
+#         Also, keywords can be human entity, place names, things, overall it should a visual description of chunk in 2 words.
+#         Chunks is:{chunk}
+#         """,
+#     ]
+
+#     response = model.generate_content(prompt_parts)
+#     print(response.text)
+#     return response.text
+
+# # Rest of your code...
+
+# print(get_keyword("This festival reflects the priorities of today's India, with the goal of empowering the youth and utilizing the nation's resources more effectively.","Prime Minister's address on skill development and India's economic growth"))
+from openai import OpenAI
+
+def get_keyword(chunk, aim):
+    # Ask ChatGPT to generate a script in JSON format
+
+    
+    shorts_prompt = f"""below are the script chunk of a video, The context and aim of video is {aim}.
+        You have to provide us keywords which can be important entity corresponding to the chunk keeping strictly context in mind.
+        Also, keywords can be human entity, place names, things, overall it should a visual description of chunk which can help us to get a releavant image for that chunk and complete video in 3-4 words.       
+        Chunks is:{chunk}
+    """
+
+
+    client = OpenAI(
+        api_key="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", 
+    )
+    
+    completion = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a image query generator for a chunk"},
+            {"role": "user", "content": shorts_prompt},
+        ],
+        functions=[
+            {
+                "name": "keyword_gen",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "keyword": {"type": "string", "description": "relevant image search query in 3-4 words for given chunk. You have to provide us keywords which can be important entity corresponding to the chunk keeping strictly context in mind."}
+                    },
+                    "required": ["keyword"]
+                }
+            }
+        ],
+    )
+
+ 
+    generated_text = completion.choices[0].message.function_call.arguments
+    output = json.loads(generated_text)
+    return output['keyword']
+
+
+keyword = get_keyword("This festival reflects the priorities of today's India, with the goal of empowering the youth and utilizing the nation's resources more effectively.", "Prime Minister's address on skill development and India's economic growth")
+print(keyword)

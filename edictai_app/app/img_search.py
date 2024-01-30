@@ -13,13 +13,15 @@ def download_file(url, output_directory, custom_filename):
     try:
         if not os.path.exists(output_directory):
             os.makedirs(output_directory, exist_ok=True)
-
-        response = requests.get(url, stream=True)
+        
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+        response = requests.get(url, stream=True,headers=headers)
         if response.status_code == 200:
             parsed_url = urlparse(url)
             path = parsed_url.path
             filename = os.path.basename(path)
             file_extension = os.path.splitext(filename)[1]
+            
 
             new_filename = custom_filename + file_extension if custom_filename else filename
             output_path = os.path.join(output_directory, new_filename)
@@ -28,7 +30,7 @@ def download_file(url, output_directory, custom_filename):
                 for chunk in response.iter_content(chunk_size=1024):
                     file.write(chunk)
             print(f"Downloaded: {url} => {output_path}")
-            return file_extension
+            return new_filename
         else:
             print(f"Failed to download {url}. Status code: {response.status_code}")
     except requests.RequestException as e:
@@ -88,7 +90,7 @@ def download_file(url, output_directory, custom_filename):
 
 #     return("images/"+new_file_name)
 
-def google_image_search_api(query, chunk_number, limit=1):
+def google_image_search_api(query, chunk_number, limit=3):
     # Load credentials from config.json
     credentials_file_path = 'config.json'  # Change this path based on your actual credentials file
     with open(credentials_file_path, 'r') as c:
@@ -155,7 +157,7 @@ def google_image_search_api(query, chunk_number, limit=1):
                     # Move to the next position if there is an error downloading the image
                     continue
 
-            return file_path
+            return outputArray
 
     except Exception as e:
         print(f"Google image search failed: {e}")
@@ -183,3 +185,79 @@ if __name__ == '__main__':
     google_image_search_api("FIDE World Junior Rapid Chess Championship",1)
 
 # google_image_search_api("FIDE World Junior Rapid Chess Championship",69)
+
+def multiple_image_search_google(query,chunk_number, limit=7, download_limit=1, url=None):
+    
+    
+  if url is not None:
+        directory = 'images/'
+        filename = f'chunk_{chunk_number}'
+        file_path_new = download_file(url, directory, filename)
+        return file_path_new
+    
+  api_url = "https://www.googleapis.com/customsearch/v1"
+  
+  credentials_file_path = 'config.json'  # Change this path based on your actual credentials file
+  with open(credentials_file_path, 'r') as c:
+        credentials = json.load(c)
+
+  params = {
+        'key': credentials['google_search_api_key'],
+        'cx': credentials['google_search_engine_id'],
+        'q': query,
+        # 'q': query,
+        # 'orTerms': chunk_text,
+        'cr': 'countryIN',
+        'gl': 'in',
+        'searchType': 'image',  
+        # 'imgType': 'stock', # clipart | face | lineart | stock | photo | animated
+        'imgSize': 'huge',  # icon | small | medium | large | xlarge | xxlarge | huge
+  }
+
+  outputArray = []
+
+  try: 
+    response = requests.get(api_url, params=params)
+    if response.status_code == 200:
+      results = response.json()
+
+      file_path = "custom_google_response.json"
+      with open(file_path, 'w') as f:
+          json.dump(results, f, indent=4)
+
+      for position, imageObject in enumerate(results['items']):
+
+          if position>limit:
+              break
+
+          outputJson = {
+              'api': "image_search_google",
+              'id': position,
+              'source': imageObject['displayLink'],
+              'title': imageObject['title'],
+              'url': imageObject['link']
+          }
+
+          outputArray.append(outputJson)
+
+          print('position: ')
+          print(position)
+          print('source: ')
+          print(imageObject['displayLink'])
+          print('title: ')
+          print(imageObject['title'])
+          print('url: ')
+          print(imageObject['link'])
+          print()
+
+
+
+          if position<=download_limit:
+              download_file(imageObject['link'], 'images/', f"chunk_{position}")
+
+  except Exception as e:
+    print(f"Google image search failed: {e}")
+
+  return outputArray
+
+# print(multiple_image_search_google("temple",2))

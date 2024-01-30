@@ -8,8 +8,14 @@ from django.core.files import File
 def index(req):
     if req.method=="POST":
             print("post request arrived")
-            url=req.POST['url']
-            link=new_final.edict_video(url)
+            url=req.POST.get('url')
+            url2 = req.POST.get('url2')
+            content_passed = req.POST.get('contentorurl')
+            if content_passed=="url_pass":
+                link=new_final.edict_video(url,content_passed)
+            else:
+                link=new_final.edict_video(url2,content_passed)
+            
             return redirect(link)
     return render(req,"index.html")
 
