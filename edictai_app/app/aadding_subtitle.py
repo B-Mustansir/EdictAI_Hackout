@@ -98,11 +98,14 @@ def convert_to_srt(subtitle_list, output_file):
     srt_content = ""
 
     for index, subtitle in enumerate(subtitle_list, start=1):
-        start_time = format_time(subtitle["start"])
-        end_time = format_time(subtitle["end"])
+        try:
+            start_time = format_time(subtitle["start"])
+            end_time = format_time(subtitle["end"])
 
-        srt_content += f"{index}\n{start_time} --> {end_time}\n{subtitle['chunk']}\n\n"
-
+            srt_content += f"{index}\n{start_time} --> {end_time}\n{subtitle['chunk']}\n\n"
+        except:
+            print(subtitle_list)
+            continue
     with open(output_file, "w") as srt_file:
         srt_file.write(srt_content)
 
@@ -183,6 +186,7 @@ def addTranscription(video_path):
         newlist = ast.literal_eval(chunks)
         chunks_modified.extend(newlist)
     transcript = chunks_modified
+    print(transcript)
     srtfile = "subtitle.srt"
     convert_to_srt(transcript, srtfile)
     addSubtitles(video_path, srtfile)

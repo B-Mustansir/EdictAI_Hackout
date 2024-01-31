@@ -1,0 +1,113 @@
+.subtitles {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .subtitles p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .subtitles .subtitle-row {
+    display: flex;
+  }
+  
+  .subtitles video {
+    height: 200px;
+    margin: 5px;
+    border: 2px solid transparent; /* Set a transparent border initially */
+    cursor: pointer;
+  }
+  
+  .subtitles video.selected {
+    border: 5px solid black; /* Increase border when selected */
+  }
+  
+  .audios-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .audios {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .audios-item {
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* Add some space between each item */
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: center;
+  }
+  
+  .audios-item input {
+    margin-right: 8px; /* Adjust the space between checkbox and label */
+  }
+  
+  .audios-item label {
+    font-size: 16px;
+  }
+  
+  .audios-item audio {
+    margin-top: 4px; /* Add some space between label and audio controls */
+  }
+  
+  .checkBoxDiv{
+    display: flex;
+    justify-content: center;
+  }
+
+  .text{
+    margin-top: 20px;
+    text-align: center;
+  }
+  .text p {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  .backgrounds {
+    text-align: center;
+  }
+  
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .video-item {
+    position: relative;
+  }
+  
+  .video-item video {
+    height: 200px;
+    margin: 5px;
+    border: 2px solid transparent;
+  }
+  
+  .video-item video.selected {
+    border: 5px solid black;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .buttons{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+
+  .buttonGroup{
+    margin-top: 30px;
+  }

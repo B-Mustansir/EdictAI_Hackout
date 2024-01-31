@@ -1,6 +1,5 @@
 import time
 import requests
-from .env import *
 
 
 def create_media_object(params):
@@ -90,19 +89,20 @@ def Upload_video_on_one_click(url, caption) :
     params = {
         'endpoint_base': 'https://graph.facebook.com/v18.0/',
         'instagram_account_id': '17841462256631392',
-        'access_token': upload_social_access_token,
-        'media_type': 'VIDEO',  # or 'VIDEO'
+        'access_token': "EAAJg4T8MjfsBOwFqoJIV1zt4exkDu2Vvz2ZCO9km65ZAhQjDWdwrP1QmDnyKzX6IfzuQlv5DNaYw7olMDYzO4qRXy2ciNLxzRGyStsa5ZAo3Ps5ibf0HEAi2a7GI7MjBUq93suaws3g015imQjMWbHFYMZCh47UtPBZAqyNsJvssjTbLsbHx1fSEi",
+        'media_type': 'REELS',  # or 'IMAGE'
         'media_url': url,
         'caption': caption,
     }
-
     video_media_object_response = create_media_object(params)
-    time.sleep(30)
+    print(video_media_object_response)
     video_media_object_id = video_media_object_response.get('id', '')
     # Publish the video media object
+    print("Creation Id", video_media_object_id)
+    time.sleep(45)
     publish_media_response = publish_media(video_media_object_id, params)
 
     print("Video Media Published Response:")
     print(publish_media_response)
 
-# Upload_video_on_one_click("https://res.cloudinary.com/dcp8kk3ry/video/upload/v1696852465/video_upload_example.mp4","Kuch bhi")
+# Upload_video_on_one_click("https://res.cloudinary.com/mentormee-cloud/video/upload/v1706673332/video_upload_example.mp4","Video Created Using EdictAI News to Video Converter")

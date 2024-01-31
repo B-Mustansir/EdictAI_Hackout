@@ -37,7 +37,17 @@ def posttest(req):
     json_data = req.body.decode('utf-8')
     
     python_data = json.loads(json_data)
-    print(python_data['name'])
+    if req.method=="POST":
+            print("post request arrived")
+            url=python_data['url']
+            
+            content_passed = python_data['contentorurl']
+            if content_passed=="url_pass":
+                link=new_final.edict_video(url,content_passed)
+            else:
+                link=new_final.edict_video(url,content_passed)
+            
+            return 
     return HttpResponse("Test chal raha hai")
     
 

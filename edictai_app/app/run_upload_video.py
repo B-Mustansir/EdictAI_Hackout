@@ -1,5 +1,5 @@
 import os
-from seo_description import * 
+from .seo_description import * 
 
 def yt_upload_video(filename, title, description):
     # topic = ""

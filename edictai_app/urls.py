@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 urlpatterns = [
     path('',views.index,name="index"),
     path("test/",views.test,name="test"),
-    path('posttest',csrf_exempt(views.posttest),name="posttest")
+    path('posttest/',csrf_exempt(views.posttest),name="posttest")
 ]
 
 if settings.DEBUG:
