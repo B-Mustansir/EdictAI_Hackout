@@ -14,11 +14,9 @@ import Job from "./Job";
 import JobDetails from "./JobDetails";
 import GenerateVideo from "./GenerateVideo";
 
-
-
 const routes = [
-  { path: '/', component: <HomeOne />},
-  { path: '/index-2', component: <HoweTwo />},
+  { path: '/', component: <HoweTwo />},
+  { path: '/index-2', component: <HomeOne />},
   { path: '/index-3', component: <HomeThree />},
   { path: '/about', component: <About />},
   { path: '/blog', component: <Blog />},
@@ -32,9 +30,6 @@ const routes = [
   { path: '/job-details', component: <JobDetails />},
   {path:'/generatevideo',component:<GenerateVideo/>},
   { path: '*', component: <Error />},
-
-
-
 ]
 
 export default routes;

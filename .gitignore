@@ -12,3 +12,4 @@ videos/
 media/
 /edictai_app/app/__pycache__
 node_modules
+edictai_home/node_modules

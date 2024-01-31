@@ -11,7 +11,7 @@ import Services1 from "components/layout/services/Services1";
 import Testimonial2 from "components/layout/testimonial/Testimonial2";
 import Roadmap from "components/layout/roadmap/Roadmap";
 import Video from "components/video/Video";
-
+import { Analytics } from '@vercel/analytics/react';
 
 const HoweTwo = () => {
     return (
@@ -27,7 +27,7 @@ const HoweTwo = () => {
             <Testimonial2/>
             
             
-            
+            <Analytics />
         </Layout>
     );
 }
