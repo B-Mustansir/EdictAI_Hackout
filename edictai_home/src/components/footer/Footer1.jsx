@@ -238,6 +238,9 @@ const Footer1 = () => {
                       <li>
                         <Link to="/refundpolicy">Refund Policy</Link>
                       </li>
+                      <li>
+                        <Link >Mustansir Bohari</Link>
+                      </li>
                   </ul>
                 </div>
               </div>

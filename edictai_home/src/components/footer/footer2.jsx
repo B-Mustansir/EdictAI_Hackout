@@ -165,6 +165,7 @@ const Footer2 = () => {
               <div className="col-lg-4">
                 <div className="footer-menu">
                   <ul className="list-wrap">
+                  
                   <li>
                         <Link to="/policyprivacy">Privacy policy</Link>
                       </li>
@@ -173,6 +174,9 @@ const Footer2 = () => {
                       </li>
                       <li>
                         <Link to="/refundpolicy">Refund Policy</Link>
+                      </li>
+                      <li>
+                        <Link >Mustansir Bohari</Link>
                       </li>
                   </ul>
                 </div>
