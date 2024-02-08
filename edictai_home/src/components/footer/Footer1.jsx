@@ -129,9 +129,9 @@ const Footer1 = () => {
                       <li>
                         <Link to="/contact">Invite a friend</Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link to="/contact">Privacy policy</Link>
-                      </li>
+                      </li> */}
                       <li>
                         <Link to="/contact">Terms of use</Link>
                       </li>
@@ -229,12 +229,15 @@ const Footer1 = () => {
               <div className="col-lg-4">
                 <div className="footer-menu">
                   <ul className="list-wrap">
-                    <li>
-                      <Link to="/contact">Terms & Conditions</Link>
-                    </li>
-                    <li>
-                      <Link to="/contact">Refund Policy</Link>
-                    </li>
+                      <li>
+                        <Link to="/policyprivacy">Privacy policy</Link>
+                      </li>
+                      <li>
+                        <Link to="/termsandconditions">Terms & Conditions</Link>
+                      </li>
+                      <li>
+                        <Link to="/refundpolicy">Refund Policy</Link>
+                      </li>
                   </ul>
                 </div>
               </div>

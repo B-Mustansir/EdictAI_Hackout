@@ -160,12 +160,15 @@ const Footer3 = () => {
               <div className="col-lg-6">
                 <div className="footer-menu">
                   <ul className="list-wrap">
-                    <li>
-                      <Link to="/contact">Terms & Conditions</Link>
-                    </li>
-                    <li>
-                      <Link to="/contact">Refund Policy</Link>
-                    </li>
+                  <li>
+                        <Link to="/policyprivacy">Privacy policy</Link>
+                      </li>
+                      <li>
+                        <Link to="/termsandconditions">Terms & Conditions</Link>
+                      </li>
+                      <li>
+                        <Link to="/refundpolicy">Refund Policy</Link>
+                      </li>
                   </ul>
                 </div>
               </div>
