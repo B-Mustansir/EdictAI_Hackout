@@ -3,7 +3,7 @@ import Layout from "components/layout/Layout";
 const Texts = (props) => {
     return <>
         <h5 style={{ fontSize: 30 }} data-wow-delay=".2s">
-            {props.heading}
+            <b>{props.heading}</b>
         </h5>
         <br />
         <p className="wow fadeInUp" data-wow-delay=".4s">
@@ -32,7 +32,7 @@ const Heads = () => {
                         </p>
                         <br />
                         <h3 style={{ fontSize: 60 }} data-wow-delay=".2s">
-                            Information We Collect
+                            <b>Information We Collect</b>
                         </h3 >
                         <br />
                         <Texts heading="User-Provided Information:" text="1.Usage Data: We collect information about your interactions with Edict AI, including log files, IP address, device information, and usage statistics. This helps us improve our service and provide a better user experience." />

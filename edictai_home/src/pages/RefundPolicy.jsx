@@ -3,7 +3,7 @@ import Layout from "components/layout/Layout";
 const Texts = (props) => {
     return <>
         <h5 style={{ fontSize: 30 }} data-wow-delay=".2s">
-            {props.heading}
+            <b>{props.heading}</b>
         </h5>
         <br />
         <p className="wow fadeInUp" data-wow-delay=".4s">
