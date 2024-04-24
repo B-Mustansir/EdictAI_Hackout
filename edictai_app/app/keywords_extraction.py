@@ -68,7 +68,7 @@ def keywords_extraction(sentence, key=azure_language_resource_api_key, endpoint=
 
 
 # def get_keyword(chunk, aim):
-#     genai.configure(api_key="AIzaSyCs8uC60b6p7j4OCRGSNpXnZ7rW2fHP4DU")
+#     genai.configure(api_key="")
 
 #     # Set up the model
 #     generation_config = {
@@ -110,7 +110,7 @@ def get_keyword(chunk, aim):
 
 
     client = OpenAI(
-        api_key="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", 
+        api_key="", 
     )
     
     completion = client.chat.completions.create(

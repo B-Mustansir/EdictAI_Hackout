@@ -5,7 +5,7 @@ chunks_list = []
 import os
 import openai
 openai.organization = "org-5LY5AiUTjRELf7YC1UtBfo0j"
-openai.api_key = "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"
+openai.api_key = ""
 
 news = '''
 PM thanks artists for rendition of his Garba song Posted On: 14 OCT 2023 11:57AM by PIB Delhi The Prime Minister, Shri Narendra Modi today thanked artists Dhvani Bhanushali, Tanishk Bagchi and team of Jjust  Music for musical, rendition of a Garba that he had penned years ago. He also informed that he will share a new Garba during the upcoming Navratri. Shri Narendra Modi posted on X : "Thank you @dhvanivinod, Tanishk Bagchi and the team of @Jjust_Music for this lovely rendition of a Garba I had penned years ago! It does bring back many memories. I have not written for many years now but I did manage to write a new Garba over the last few days, which I will share during Navratri. #SoulfulGarba"'''
@@ -81,7 +81,7 @@ print()
 
 import os
 import azure.cognitiveservices.speech as speechsdk
-speech_config = speechsdk.SpeechConfig(subscription="21186bfc40b44f23bdd5d7afe3f19552", region="centralindia")
+speech_config = speechsdk.SpeechConfig(subscription="", region="")
 audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 speech_config.speech_synthesis_voice_name='en-US-JennyNeural'
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)

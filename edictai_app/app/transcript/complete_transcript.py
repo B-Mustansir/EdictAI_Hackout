@@ -161,7 +161,7 @@ def lavdeKafunction():
 
     # import os
     # import azure.cognitiveservices.speech as speechsdk
-    # speech_config = speechsdk.SpeechConfig(subscription="21186bfc40b44f23bdd5d7afe3f19552", region="centralindia")
+    # speech_config = speechsdk.SpeechConfig(subscription="", region="")
     # audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
     # speech_config.speech_synthesis_voice_name='en-US-JennyNeural'
     # speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)

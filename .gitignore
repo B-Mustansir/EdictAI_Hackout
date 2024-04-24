@@ -13,3 +13,7 @@ media/
 /edictai_app/app/__pycache__
 node_modules
 edictai_home/node_modules
+
+.config.json
+edictai_app/app/transcript/complete_transcript.py
+edictai_app/app/transcript/complete_transcript_2.py

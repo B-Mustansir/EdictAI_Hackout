@@ -4,7 +4,7 @@ import PIL.Image
 def get_caption(img_path):
     img = PIL.Image.open(img_path)
 
-    genai.configure(api_key="AIzaSyCs8uC60b6p7j4OCRGSNpXnZ7rW2fHP4DU")
+    genai.configure(api_key="")
 
     # Set up the model
     generation_config = {

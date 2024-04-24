@@ -141,7 +141,7 @@ Remember, your goal is to inform, inspire, and engage your viewers. Make it capt
 """
 
     client = OpenAI(
-        api_key="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", 
+        api_key="", 
     )
     
     completion = client.chat.completions.create(

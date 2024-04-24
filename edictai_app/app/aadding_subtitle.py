@@ -10,7 +10,7 @@ from faster_whisper import WhisperModel
 
 def gemini(chunk_list):
 
-    genai.configure(api_key="AIzaSyBT1VMTnJFfXuifJJBtmzNfMVdrmdpECHc")
+    genai.configure(api_key="")
     model = genai.GenerativeModel('gemini-pro')
     prompt = f""" 
 Task:
